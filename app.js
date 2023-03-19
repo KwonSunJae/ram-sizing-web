@@ -109,7 +109,7 @@ altitude,${req.body.altitude3},,,
             return;
         }
         res.writeHead(400, { "Content-Type": "text/plain" });
-        res.end("ERROR File does not exist");
+        res.end("ERROR File does not exist "+ filePath);
     });
     
 });
