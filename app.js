@@ -65,15 +65,15 @@ speed_stall,leq,${req.body.speed_stall},m/s,
 CONSTRAINT,,,,
 calc_maximum_speed,,,,
 speed_max,leq,${req.body.speed_max},m/s,
-altitude,0,,,
+altitude,${req.body.altitude1},,,
 CONSTRAINT,,,,
 calc_takeoff_dist,,,,
 distance_takeoff,leq,${req.body.distance_takeoff},m,
-altitude,${req.body.altitude1},,,
+altitude,${req.body.altitude2},,,
 CONSTRAINT,,,,
 calc_rate_of_climb,,,,
 rate_of_climb,geq,${req.body.rate_of_climb},m/s,
-altitude,${req.body.altitude2},,,
+altitude,${req.body.altitude3},,,
 `;
     
     const inputfile = path.join(__dirname,path.join('input',filename+''));
