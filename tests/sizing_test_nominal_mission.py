@@ -1,10 +1,11 @@
 from testing import adsp
 import numpy as np
 import matplotlib.pyplot as plt
+import sys
 
 
 # ==========set input file ############### 
-opt = adsp.SizingOptimization(input_filename='ram_demo_input_nominal_mission')
+opt = adsp.SizingOptimization(input_filename=sys.argv[1])
 # ==============Run Sizing Optimization===========
 opt.run()
 wingloading = opt.cb.wing_loading

@@ -109,7 +109,7 @@ class MarkdownDocument():
         os.mkdir(path)
         mdFile = self.reportFileName +   '.md'
         pdfFile = mdFile[:-2] + 'pdf'
-        mdPath = os.path.abspath(path + '\\' + mdFile)
+        mdPath = os.path.abspath(path + '/' + mdFile)
         
         fid = open(mdPath, 'w+')
         fid.write(self.doc)
@@ -117,18 +117,18 @@ class MarkdownDocument():
         
         # save all figures
         for i in range(self.figIdx):
-            figPath = os.path.abspath(path + '\\' + self.figFileNames[i])
+            figPath = os.path.abspath(path + '/' + self.figFileNames[i])
             self.figures[i].savefig(figPath)
 
         # generate pdf
-        os.chdir('%s'%path)
-        cmd = 'pandoc -s -o \"%s\" \"%s\"'%(pdfFile, mdFile)
-        os.system(cmd)
+        #os.chdir('%s'%path)
+        #cmd = 'pandoc -s -o \"%s\" \"%s\"'%(pdfFile, mdFile)
+        #os.system(cmd)
         
         # copy pdf to root folder
-        srcFile = os.path.abspath(path + '\\' + pdfFile)
-        destFile = os.path.abspath(paths.db.outPath + '\\' + dirname + '.pdf')
-        copyfile(srcFile, destFile)
+        #srcFile = os.path.abspath(path + '/' + pdfFile)
+        #destFile = os.path.abspath(paths.db.outPath + '\\' + dirname + '.pdf')
+        #copyfile(srcFile, destFile)
 
 
     def __repr__(self):

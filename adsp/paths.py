@@ -12,6 +12,7 @@ from random import randrange
 import platform
 from warnings import warn
 from datetime import datetime
+import sys
 
 _adspSrcDir = os.path.dirname(__file__)
 
@@ -38,7 +39,7 @@ class _Databases:
         return os.path.abspath(self.combus + '/%s.csv'%name)
 
     def get_tmp_report_dir(self):
-        now = datetime.now().strftime("%Y%m%d-%H%M%S")
+        now = sys.argv[1]
         return os.path.abspath(self.outPath + '/' + now), now
     
     def get_input_file_path(self, name):

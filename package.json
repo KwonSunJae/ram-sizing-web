@@ -1,0 +1,25 @@
+{
+  "name": "ram-sizing-1.0rc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KwonSunJae/ram-sizing-web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KwonSunJae/ram-sizing-web/issues"
+  },
+  "homepage": "https://github.com/KwonSunJae/ram-sizing-web#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
