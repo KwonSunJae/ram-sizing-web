@@ -103,7 +103,7 @@ altitude,${req.body.altitude3},,,
             // Web browser will handle response in an appropriate manner.
             res.writeHead(200, {
                 "Content-Type": "application/octet-stream",
-                "Content-Disposition": "attachment; filename=" + fileName
+                "Content-Disposition": "attachment; filename=report.md" 
             });
             fs.createReadStream(filePath).pipe(response);
             return;
