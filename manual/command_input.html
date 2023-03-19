@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Command input file &mdash; ADSP 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="eCTOL Sizing Theory Manual" href="eCTOL%20Sizing%20Theory%20Manual.html" />
+    <link rel="prev" title="Getting started" href="getting_started.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ADSP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Command input file</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mission-profile-mandatory">mission_profile (mandatory)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configruation-mandatory">CONFIGRUATION (mandatory)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aerodynamics-mandatory">AERODYNAMICS (mandatory)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#propulsion-mandatory">PROPULSION (mandatory)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#energy-system-mandatory">ENERGY-SYSTEM (mandatory)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mass-mandatory">MASS (mandatory)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#design-variable-mandatory">DESIGN VARIABLE (mandatory)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#objective-mandatory">OBJECTIVE (mandatory)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constraints-mandatory">CONSTRAINTS (mandatory)</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="eCTOL%20Sizing%20Theory%20Manual.html">eCTOL Sizing Theory Manual</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ADSP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Command input file</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/command_input.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="command-input-file">
+<h1>Command input file<a class="headerlink" href="#command-input-file" title="Permalink to this headline"></a></h1>
+<p>There is a single CSV input file that controls the whole sizing probram.
+Command input files by default are located in <code class="docutils literal notranslate"><span class="pre">data</span></code> directory.</p>
+<p>The file is divided into three main sections and subsections.
+ADSP performs search by the section header, so it is important to write
+them correctly.</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Example of command input file</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>SIZING INPUT</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>mission_profile</p></td>
+<td><p>ram-mission</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CONFIGURATION</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>aspect_ratio_wing</p></td>
+<td><p>10.7027</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>taper_ratio_wing</p></td>
+<td><p>0.48</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>sweep_wing_leading_edge</p></td>
+<td><p>6</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>num_of_propellers_ctol</p></td>
+<td><p>2</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>num_of_propeller_blades</p></td>
+<td><p>3</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>AERODYNAMICS</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>oswald_effy</p></td>
+<td><p>0.7</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CD_0</p></td>
+<td><p>0.0288</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CL_max</p></td>
+<td><p>2.2</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CL_takeoff</p></td>
+<td><p>0.7</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CD_takeoff</p></td>
+<td><p>0.05</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CD_landing</p></td>
+<td><p>0.05</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CL_landing</p></td>
+<td><p>0.7</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PROPULSION</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>effy_motor</p></td>
+<td><p>0.95</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>effy_propeller</p></td>
+<td><p>0.8</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>effy_controller</p></td>
+<td><p>0.7</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>effy_propeller_cruise</p></td>
+<td><p>0.8</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>effy_propeller_climb</p></td>
+<td><p>0.7</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>effy_propeller_descent</p></td>
+<td><p>0.8</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>effy_propeller_takeoff</p></td>
+<td><p>0.5</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>effy_propeller_landing</p></td>
+<td><p>0.45</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ENERGY-SYSTEM</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>coef_batt_usable_energy</p></td>
+<td><p>0.85</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>spec_energy_batt_wh_per_kg</p></td>
+<td><p>600</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>effy_batt</p></td>
+<td><p>0.8</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>coef_propulsion_install</p></td>
+<td><p>1.3</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>MASS</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>mass_frac_subsys</p></td>
+<td><p>0.05</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>mass_frac_avionics</p></td>
+<td><p>0.02</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>mass_frac_struct</p></td>
+<td><p>0.2</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>mass_payload</p></td>
+<td><p>954</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>passenger_number</p></td>
+<td><p>9</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>coef_ground_friction</p></td>
+<td><p>0.04</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>height_obstacle</p></td>
+<td><p>10.7</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DESIGN VARIABLE</p></td>
+<td><p>x0</p></td>
+<td><p>lb</p></td>
+<td><p>ub</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>mass_total_inp</p></td>
+<td><p>8618</p></td>
+<td><p>3000</p></td>
+<td><p>12000</p></td>
+<td><p>kg</p></td>
+</tr>
+<tr class="row-odd"><td><p>wing_loading</p></td>
+<td><p>1600</p></td>
+<td><p>100</p></td>
+<td><p>2000</p></td>
+<td><p>N/m^2</p></td>
+</tr>
+<tr class="row-even"><td><p>power_loading</p></td>
+<td><p>16</p></td>
+<td><p>7</p></td>
+<td><p>50</p></td>
+<td><p>W/N</p></td>
+</tr>
+<tr class="row-odd"><td><p>OBJECTIVE</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>calc_total_mass</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>mass_total_out</p></td>
+<td><p>min</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CONSTRAINT</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>calc_stall_speed</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>speed_stall</p></td>
+<td><p>leq</p></td>
+<td><p>36</p></td>
+<td><p>m/s</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CONSTRAINT</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>calc_maximum_speed</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>speed_max</p></td>
+<td><p>leq</p></td>
+<td><p>120</p></td>
+<td><p>m/s</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>altitude</p></td>
+<td><p>0</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CONSTRAINT</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>calc_takeoff_dist</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>distance_takeoff</p></td>
+<td><p>leq</p></td>
+<td><p>800</p></td>
+<td><p>m</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>altitude</p></td>
+<td><p>0</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CONSTRAINT</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>calc_rate_of_climb</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>rate_of_climb</p></td>
+<td><p>geq</p></td>
+<td><p>6.25</p></td>
+<td><p>m/s</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>altitude</p></td>
+<td><p>0</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="mission-profile-mandatory">
+<h2>mission_profile (mandatory)<a class="headerlink" href="#mission-profile-mandatory" title="Permalink to this headline"></a></h2>
+<p>The first line always contains the <code class="docutils literal notranslate"><span class="pre">mission_profile</span></code> keyword and the name
+of mission to be analyzed.</p>
+</section>
+<section id="configruation-mandatory">
+<h2>CONFIGRUATION (mandatory)<a class="headerlink" href="#configruation-mandatory" title="Permalink to this headline"></a></h2>
+<p>This section control the input related to configuration parameters</p>
+</section>
+<section id="aerodynamics-mandatory">
+<h2>AERODYNAMICS (mandatory)<a class="headerlink" href="#aerodynamics-mandatory" title="Permalink to this headline"></a></h2>
+<p>This section control the input related to aerodynamcis parameters</p>
+</section>
+<section id="propulsion-mandatory">
+<h2>PROPULSION (mandatory)<a class="headerlink" href="#propulsion-mandatory" title="Permalink to this headline"></a></h2>
+<p>This section control the input related to propulsion parameters</p>
+</section>
+<section id="energy-system-mandatory">
+<h2>ENERGY-SYSTEM (mandatory)<a class="headerlink" href="#energy-system-mandatory" title="Permalink to this headline"></a></h2>
+<p>This section control the input related to energy system parameters</p>
+</section>
+<section id="mass-mandatory">
+<h2>MASS (mandatory)<a class="headerlink" href="#mass-mandatory" title="Permalink to this headline"></a></h2>
+<p>This section control the input related to mass fraction parameters</p>
+</section>
+<section id="design-variable-mandatory">
+<h2>DESIGN VARIABLE (mandatory)<a class="headerlink" href="#design-variable-mandatory" title="Permalink to this headline"></a></h2>
+<p>This section control the input related to design variable to optimized our design</p>
+</section>
+<section id="objective-mandatory">
+<h2>OBJECTIVE (mandatory)<a class="headerlink" href="#objective-mandatory" title="Permalink to this headline"></a></h2>
+<p>This section control the input related to objective function whether to <code class="docutils literal notranslate"><span class="pre">min</span></code> or <code class="docutils literal notranslate"><span class="pre">max</span></code> the objective function.</p>
+</section>
+<section id="constraints-mandatory">
+<h2>CONSTRAINTS (mandatory)<a class="headerlink" href="#constraints-mandatory" title="Permalink to this headline"></a></h2>
+<p>This section control the input related to constraints, it can be user defined constraints.
+It can be controlled by <code class="docutils literal notranslate"><span class="pre">leq</span></code> for less than or equal
+and <code class="docutils literal notranslate"><span class="pre">geq</span></code> for greater than or equal.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getting_started.html" class="btn btn-neutral float-left" title="Getting started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="eCTOL%20Sizing%20Theory%20Manual.html" class="btn btn-neutral float-right" title="eCTOL Sizing Theory Manual" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, KADA.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

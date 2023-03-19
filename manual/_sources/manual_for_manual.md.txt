@@ -1,0 +1,33 @@
+# guidelines for writing the manual
+
+Sphinx python library will be used for documentation. 
+If done properly, html or tex files can be easiliy generated.
+
+## File formats
+
+This part may be confusing, but we will implement both writing formats. 
+Use both *.rst* and *.md*. Test pages will be included.
+
+ReSTructuredText - for files where more automation is needed. RST 
+syntax is more complicated, but more flexible.
+
+- main page
+- contents generation
+- auto doc from the code
+
+Markdown - for files where more writing is needed. MD syntax is simple
+
+- theory manual
+- run examples
+
+# TODO
+
+
+- install myst parser
+- run sphinx with autodoc
+- 한글 가능해요?
+- gen html
+- check if documentation can be seen online (gitlab)
+- if online is not available, decide on lab hosting
+- gen latex / doc
+- use figures in GIT-friendly formats (svg), avoid raster (jpg, png)

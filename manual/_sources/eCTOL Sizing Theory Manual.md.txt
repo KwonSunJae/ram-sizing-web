@@ -1,0 +1,147 @@
+# eCTOL Sizing Theory Manual
+
+This is the manual for electric conventional takeoff and landing sizing manual
+## General Overview
+
+Instead of tradional sizing process, which find the required P/W, T/W based on the requirements, we used optimization appraoch which finds the design requirements with the variables of P/W, W/S and Mass input values.
+An optimization formulaiton can be written as,
+
+$$\min_{P/W, W/S, MTOW_{in}} \ MTOW_{out}$$
+$$\text{subject to}\notag \\$$
+$$MTOW_{in} - MTOW_{out} \leq \epsilon$$
+$$V_{stall_{out}} \leq V_{stall_{req}}$$
+$$ROC_{max_{calc}} \geq ROC_{max_{req}}$$
+$$...$$
+$$...$$
+other constraints parameters that is defined by user requirements.
+
+## Performance Requirements Calcualtion
+
+Performance requirements such as maximum climb rate, cruise speed can be calculated based on our design variables of P/W, W/S and MTOW_{in} values.
+### Steady Level Flight Conditions
+
+A cruise condition can be set for different conditions.
+
+$$ T = D $$
+$$ L = W $$
+#### Thrust required, Power required and P/W calculation
+
+Thrust required, Power required, Lift required can be defined from cruise speed and wing loading conditions.
+
+$$C_{L_{req}} = 2 (W/S) \rho V_{cruise}^2$$
+$$C_D = CD_0 + k C_{L_{req}}^2$$
+$$T_{req} = D = 1/2 \rho V_{cruise}^2 \frac{1}{(W/S)} W_{in} C_D$$
+$$P_{req}/W_{in} = \frac{T_{req} V_{cruise}}{\eta_{prop}}$$
+$$P_{req} = (P/W) W_{in}$$
+
+#### Maximum Endurance Speed
+
+Find the speed for maximum endurance condition.
+$$ V_{E_{max}} = \sqrt{(2/\rho) (W/S) \sqrt{\frac{k}{3 C_{D_{0}}}}}$$
+$$ V_{cruise}  =V_{E_{max}}$$
+
+#### Maximum Range Speed
+
+Find the speed for maximum range condition.\
+
+$$ V_{R_{max}} = \sqrt{(2/\rho) (W/S) \sqrt{\frac{k}{C_{D_{0}}}}}$$
+$$ V_{cruise}  =V_{R_{max}}$$
+
+#### Maximum Speed
+
+Find the airspeed for maximum speed condition. Maximum speed can be find as a funciton of P/W and W/S. Since the equaiton cannot solve manually, so we applied Newoton Raphson methods to find the maximum speed. [^fn]
+
+$$\eta_{prop} (P/W) = 0.5 \rho V_{max}^3 1/(W/S) C_{D_{0}} + \frac{2k (W/S)}{\rho V_{max}} $$
+$$V_{cruise} = V_{max}$$
+
+[^fn]: AircraftPerformanceAnEngineeringApproach[pg-265]
+
+### Climb and Descent Conditions
+
+A climb condition can be set for different conditions. \
+$$ T = W \sin \theta + D $$
+$$ L = W \cos \theta $$
+
+#### Thrust required, Power required and P/W calculation
+
+Thrust required, Power required, Lift required can be defined from cruise speed and wing loading conditions.
+
+$$C_{L_{req}} = 2 (W/S) \rho V_{climb}^2 \cos \theta $$
+$$ C_D = CD_0 + k C_{L_{req}}^2$$
+$$ T_{req} = W \sin \theta + D $$
+$$ T_{req}  = W_{in} \sin \theta + 1/2 \rho V_{cruise}^2 \frac{1}{(W/S)} W_{in} C_D $$
+$$ P_{req}/W_{in} = \frac{T_{req} V_{cruise}}{\eta_{prop}} $$
+$$ P_{req} = (P/W) W_{in}$$
+
+#### Maximum Rate of Climb Condition
+
+A maximum rate of climb condition can be found at maximum lift to drag ratio and maximum excess power conditions. A maximum lift to drag ratio speed can be written as,
+
+$$V_{LD_{max}} = \sqrt{2/\rho (W/S) \sqrt{\frac{k}{3 C_{D_{0}}}}}$$ 
+$$LD_{max}    =  \frac{1}{4 C_{D_{0} k}}$$
+$$ROC_{max}   = \eta_{prop} (P/W) - V_{LD_{max}} \frac{1.1547}{LD_{max}}$$
+$$\theta      = \sin^{-1} (\frac{ROC_{max}}{V_{LD_{max}}})$$
+$$ V_{climb}  = V_{LD_{max}}$$
+
+#### Stall Speed Condtion
+
+A stall speed can be calculated as a function of wingloading
+
+$$ V_{stall} = \sqrt{\frac{2 (W/S)}{\rho C_{L_{max}}}}$$
+
+#### Takeoff Condition
+
+A takeoff condition is defined which is calculated based on lift off speed, P/W and W/S. A ground roll distance is calculated.
+
+$$V_{liftoff} = 1.2 V_{stall}$$
+$$V_{field} = \frac{V_{liftoff}}{\sqrt{2}}$$
+$$S_{g} = \frac{V_{liftoff}^2}{2 g (\eta_{prop}/V_{field}(P/W)+q \ 1/(W/S)(\mu C_{L_{TO}}-C_{D_{TO}}-\mu))}$$
+
+## Total mass calculation
+
+In this calculaiton, we consisder for Energy mass calcualtion, Propulison mass calculaiton, Structural, Subsystems and Avionics mass.
+
+### Energy Mass Calculaiton
+
+Energy mass can be divided for hydrogen fuel cell and battery mass.
+In this version, we only consisder for battery mass. A battery mass can be estimated depending on specific energy density, energy required of our aircraft mission.
+
+$$ Energy_{battery} = \frac{Energy_{req}}{f_{usable}\eta_{battery}}$$
+
+$$ mass_{battery} = \frac{Energy_{battery}}{E_{spec}}$$
+
+### Propulsion Mass Calculation
+
+Propulsion mass for motor, inverter are used as regression model from competitor data.
+
+#### Motor Regression Model
+
+Motor mass is estimated based on maximum power required.
+
+$$ mass_{motor} = 0.208 P_{max_{kw}} + 2.23 $$
+
+### Inverter Regression Model
+
+Invertor mass is estimated based on maximum power required.
+
+$$ mass_{inverter} = 0.0553 P_{max_{kw}} + 1.721$$
+
+### Propeller Model
+
+Propeller mass is estimated based on diameter of propeller.
+Propeller diameter is calculated. [^fn]
+$$ mass_{prop} = 1.1 {(D_{prop} P_{max_{kw}}\sqrt{N_{b}})^{0.52}}$$
+
+$$ D_{prop} = k_{p} P_{max_{kw}}^{0.25}$$
+$k_{p}$ is 0.56 for 2 blades propeller.\
+$k_{p}$ is 0.52 for 3 blades propelelr.\
+$k_{p}$ is 0.49 for propeller's blades between 3 and 6.
+ 
+[^fn]: PropellerDesignforConceptualTurbopropAircraft 
+[^ref]:Raymer:AconceptualApproach
+
+## Mission Energy Required Calcaultion
+Mission energy required is calculated depending on user mission profile and calcuated the power required of each mission segements and as well as mission energy.
+
+$$Energy_{misison} = \sum_{i=0}^{i=Seg} {P_{i} t_{i}}$$
+

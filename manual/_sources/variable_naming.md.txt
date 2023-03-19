@@ -1,0 +1,90 @@
+# Variable names
+
+All variable names are words ```separated_with_underscores```.
+For example ```motor_power```
+
+Constants should be in CAPS separated with underscores
+```GRAVITY_ACCELERATION```.
+
+## General convention
+
+The following variable naming convention should be used:
+
+1. Parameter name (mass, power, thrust, etc.)
+2. Parameter descriptor (motor, propeller, baggage, etc.)
+3. Prefix (min, max, avg, total)
+4. Unit, if not SI
+
+```python
+mass_propulsion_total
+thrust_total_lbf
+thrust_avg
+```
+
+### Prefixes and aggregations
+
+Use only approved aggregations listed in this document
+
+- maximum ```max```
+- minimum ```min```
+- average ```avg```
+- index ```idx```
+- input ```inp```
+- output ```out```
+- required ```req```
+- installation ```install```
+- horizontal stabilizer (tail) ```hstab```
+- vertical stabilizer ```vstab```
+- location ```loc```
+- dynamic ```dyn```
+- geometrical coordinates
+  - fuselage station ```FS```
+  - water line ```WL```
+  - butt line ```BL```
+
+Put the abbreviations at the end of the variable name
+```velocity_avg```
+
+### Units
+
+By default keep all the units in SI system! If variable is not in SI
+add the unit at the end of the variable name
+
+Example: ```velocity_avg_kts```
+
+### Number of items
+
+Use words **number of** for total number of items and **index** to
+ refer to a specific item. Avoid use of word **total** in this context.
+
+- ```num_of_motors``` - total number of motors
+- ```idx_motor``` - specific index of the motor (1st or 5th)
+
+### Total
+
+Use word **total** for uncountable nouns. Like ```mass_total```
+
+## Variable and Function
+
+Variables are nouns ```mass, lift, aircraft```
+
+Functions are verbs ```calculate, set, plot, save```
+
+## Common abbreviations
+
+List all the abbreviations used in the code here
+
+- battery ```batt```
+- system ```sys```
+- efficiency ```effy```
+- coefficient ```coef```
+- distance ```dist```
+- length ```len```
+- diameter ```diam```
+- fuselage ```fus```
+- fraction ```frac```
+- structure ```struct```
+
+## References
+
+[ref](https://builtin.com/data-science/variable-names)

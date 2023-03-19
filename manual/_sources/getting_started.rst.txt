@@ -1,0 +1,93 @@
+Getting started
+===============
+
+ADSP is written in Python 3. Currently ADSP is working without 
+installation. The code is provided as a folder (archive). 
+
+Full installation setup is planned for future versions. 
+
+Directory structure
+-------------------
+
+::
+
+    adsp
+    |   .gitignore
+    |   requirements.txt
+    |   README.md
+    +---adsp
+    |   |   sizing
+    |   |   utils
+    +---data
+    |   |   combus
+    |   |   sizing mission
+    +---doc
+    |   |   user's manual
+    |   |   theory manual
+    +---input
+    |   |   input files
+    +---output
+    |   |   results of analysis
+    +---tests
+    |   |   test runcases
+
+The code execution is fully controlled from a single csv (spreadsheet) 
+file. *data* folder contains several examples. Complete structure of 
+the *Command input file* is shown in sections below.
+
+Running the code
+----------------
+
+The easiest way to run the ADSP is shown below
+
+.. code-block:: python
+   :caption: run a script
+
+   from testing import adsp
+
+   # read file from input/ram-demo-input.csv
+   opt = adsp.SizingOptimization('ram-demo-input.csv')
+
+   # run the optimization
+   opt.run()
+   wingloading  = opt.wing_loading
+   powerloading = opt.power_loading
+   mass_opt     = opt.mass_total_out
+
+   # Plotting for sizing matrix
+   constraint_diagram = opt.run_sizing_matrix_plot(wingloading_opt=wingloading,
+                                  powerloading_opt=powerloading)
+   # save contraint diagram in report
+   opt.report.add_constraint_diagram(constraint_diagram)
+
+
+   # Plotting mass breakdown
+   mass_breakdown = opt.get_mass_break_down(mass_opt= mass_opt)
+   # save mass breakdown in report
+   opt.report.add_mass_breakdown(mass_breakdown)
+
+   # Plotting payload range tradeoff
+   specific_energy_sweep  = [0, 300, 1000]
+   payload_sweep = [0, 500, 1154]
+   payload_range_tradeoff = opt.plot_range_payload(specific_energy_sweep, payload_sweep, mass_opt)
+   # save payload range diagram in report
+   opt.report.add_payload_range_tradeoff(payload_range_tradeoff)
+
+   # Plotting stall and maximum speed carpet
+   stall_max_speed_tradeoff = opt.run_stall_speed_max_speed_carpet_plot(powerloading_opt= powerloading, mass_opt=mass_opt)
+   # save stall and max speed carpet in report
+   opt.report.add_stall_max_speed_tradeoff(stall_max_speed_tradeoff)
+
+   # save all the data and figures
+   opt.save_report()
+
+   # This is an additonal module for design evaulation
+   carpet_plot = opt.run_carpet_plot(wingloading_min=800, wingloading_max=2000,
+                            powerloading_min=9, powerloading_max=20)
+    carpet_plot.write_image("Carpet_plot.png")
+
+The code will perform full analysis according to inputs in the 
+*'ram-demo-input.csv'*, display the results and save markdown and pdf 
+reports in the *output* folder
+
+More test cases are located in *tests* folder

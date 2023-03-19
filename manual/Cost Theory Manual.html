@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Theory manual for Cost Manual &mdash; ADSP 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="eCTOL Sizing Theory Manual" href="eCTOL%20Sizing%20Theory%20Manual.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ADSP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command_input.html">Command input file</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="eCTOL%20Sizing%20Theory%20Manual.html">eCTOL Sizing Theory Manual</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Theory manual for Cost Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#development-cost">Development Cost</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#non-recurring-cost">Non Recurring Cost</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hybrid-aircraft">Hybrid Aircraft</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#center-table-1-correction-factors-for-design-choices-center"><center> Table 1. Correction factors for design choices </center></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cost-of-engineering-c-eng">Cost of Engineering (<span class="math notranslate nohighlight">\(C_{ENG}\)</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cost-of-tooling-c-tool">Cost of Tooling (<span class="math notranslate nohighlight">\(C_{TOOL}\)</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cost-of-manufacturing-c-mfg">Cost of Manufacturing (<span class="math notranslate nohighlight">\(C_{MFG}\)</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cost-of-development-support-c-dev">Cost of Development Support (<span class="math notranslate nohighlight">\(C_{DEV}\)</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cost-of-flight-test-operations-c-ft">Cost of Flight Test Operations ($C_{FT})</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cost-of-quality-control-c-qc">Cost of Quality Control (<span class="math notranslate nohighlight">\(C_{QC}\)</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cost-of-materials-c-mat">Cost of Materials (<span class="math notranslate nohighlight">\(C_{MAT}\)</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cost-of-the-propulsion-system">Cost of the propulsion system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantity-discount-factor-qdf">Quantity Discount Factor (QDF)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#insurance-product-liability-cost">Insurance / Product Liability Cost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profit">Profit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#single-source-aircraft">Single Source Aircraft</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#engineering-hours">Engineering hours</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tooling-hours">Tooling Hours</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manufacturing-hours">Manufacturing Hours</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quality-control-hours">Quality Control Hours</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#development-support-cost">Development Support Cost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#flight-test-cost">Flight Test Cost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rdt-e">RDT&amp;E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#average-wrap-rates-adjusted-to-2012">Average wrap rates (adjusted to 2012)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#recurring-cost">Recurring Cost</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#airframe-components-cost-1-modified-dapca-iv">Airframe Components Cost 1 [Modified DAPCA IV]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#airframe-components-cost-2-beltramo">Airframe Components Cost 2 [Beltramo]</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wing">Wing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tail">Tail</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fuselage">Fuselage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#airframe-unconventional-part">Airframe Unconventional Part</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canard">Canard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connector">Connector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#box-wing">Box wing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#blended-wing">Blended wing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#oval-fuselage">Oval fuselage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#electric-motor-cost">Electric Motor Cost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#power-management-system-cost">Power Management System Cost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#battery-cost">Battery Cost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#propeller-cost">Propeller Cost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#landing-gear">Landing Gear</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#operating-cost">Operating Cost</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#direct-operating-cost">Direct Operating Cost</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#block-time-and-flight-cycles-model">Block Time and Flight Cycles model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#block-time">Block time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#flight-cycles-per-year">Flight cycles per year</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utilisation-rate">Utilisation Rate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cost-per-available-seat-kilometer-cask">Cost per available seat kilometer(CASK)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#flight-cost">Flight Cost</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#flight-cost-of-pilot-1">Flight Cost of Pilot 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#flight-cost-of-pilot-2">Flight Cost of Pilot 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#flight-cost-of-battery">Flight Cost of Battery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#flight-cost-of-hydrogen-fuel">Flight Cost of Hydrogen Fuel</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#maintenance-cost">Maintenance Cost</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#total-maintenance-cost-reference-1">Total Maintenance Cost Reference 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maintenance-of-airframe">Maintenance of Airframe</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#depreciation-cost">Depreciation Cost</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#depreciation-of-aircraft">Depreciation of Aircraft</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#depreciation-of-battery">Depreciation of Battery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#depreciation-of-propeller">Depreciation of Propeller</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v-block"><span class="math notranslate nohighlight">\(V_{block}\)</span></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#airport-fee">Airport Fee</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#navigation-fees">Navigation fees</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#terminal-fees-1">Terminal fees 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#terminal-fees-2">Terminal fees 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#registry-tax">Registry Tax</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#financing">Financing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#in-direct-operating-cost">In Direct Operating Cost</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#center-table-2-cost-factors-for-ioc-components-center"><center> Table 2. Cost factors for IOC components </center></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#local-facilities">Local Facilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#passenger-handling">Passenger Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cargo-handling">Cargo Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#general-and-administrative">General and administrative</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#figure-of-merit-calculation">Figure of Merit Calculation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#aircraft-list-price">Aircraft List Price</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aircraft-recurring-month">Aircraft Recurring Month</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ADSP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Theory manual for Cost Manual</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Cost Theory Manual.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="theory-manual-for-cost-manual">
+<h1>Theory manual for Cost Manual<a class="headerlink" href="#theory-manual-for-cost-manual" title="Permalink to this headline"></a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="development-cost">
+<h1>Development Cost<a class="headerlink" href="#development-cost" title="Permalink to this headline"></a></h1>
+<p>Development cost = Non Recurring Cost + Recurring Cost</p>
+<section id="non-recurring-cost">
+<h2>Non Recurring Cost<a class="headerlink" href="#non-recurring-cost" title="Permalink to this headline"></a></h2>
+<p>Non Recurring Cost is from RDT&amp;E phase.</p>
+<hr class="docutils" />
+<section id="hybrid-aircraft">
+<h3>Hybrid Aircraft<a class="headerlink" href="#hybrid-aircraft" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>This model’s reference is “Finger기타, “Cost Estimation Methods for Hybrid-Electric General Aviation Aircraft”.”</p></li>
+</ul>
+<hr class="docutils" />
+<section id="center-table-1-correction-factors-for-design-choices-center">
+<h4><center> Table 1. Correction factors for design choices </center><a class="headerlink" href="#center-table-1-correction-factors-for-design-choices-center" title="Permalink to this headline"></a></h4>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p>CER Category</p></th>
+<th class="text-center head"><p><span class="math notranslate nohighlight">\(F_{Cert}\)</span> <br/> Factor for LSA certification</p></th>
+<th class="text-center head"><p><span class="math notranslate nohighlight">\( 𝐹_{𝐶𝑜𝑚𝑝}\)</span><br/>Factor for 100% composites</p></th>
+<th class="text-center head"><p><span class="math notranslate nohighlight">\(𝐹_{𝑇𝑎𝑝𝑒𝑟}\)</span><br/>Factor for untapered wings</p></th>
+<th class="text-center head"><p><span class="math notranslate nohighlight">\(𝐹_{𝐶𝐹}\)</span><br/>Factor for complex flap system</p></th>
+<th class="text-center head"><p><span class="math notranslate nohighlight">\(𝐹_{𝑃𝑟𝑒𝑠𝑠}\)</span><br/>Factor for pressurized cabin</p></th>
+<th class="text-center head"><p><span class="math notranslate nohighlight">\(𝐹_{𝐻𝑦𝐸}\)</span><br/>Factor for hybrid-electric propulsion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Engineering Cost</p></td>
+<td class="text-center"><p>0.67</p></td>
+<td class="text-center"><p>2.00</p></td>
+<td class="text-center"><p>-</p></td>
+<td class="text-center"><p>1.03</p></td>
+<td class="text-center"><p>1.03</p></td>
+<td class="text-center"><p>1.33-1.66</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Tooling Cost</p></td>
+<td class="text-center"><p>-</p></td>
+<td class="text-center"><p>2.00</p></td>
+<td class="text-center"><p>0.95</p></td>
+<td class="text-center"><p>1.02</p></td>
+<td class="text-center"><p>1.01</p></td>
+<td class="text-center"><p>1.10</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Manufacturing Cost</p></td>
+<td class="text-center"><p>0.75</p></td>
+<td class="text-center"><p>1.25</p></td>
+<td class="text-center"><p>-</p></td>
+<td class="text-center"><p>1.01</p></td>
+<td class="text-center"><p>-</p></td>
+<td class="text-center"><p>1.10</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Development Support Cost</p></td>
+<td class="text-center"><p>0.50</p></td>
+<td class="text-center"><p>1.50</p></td>
+<td class="text-center"><p>-</p></td>
+<td class="text-center"><p>1.01</p></td>
+<td class="text-center"><p>1.03</p></td>
+<td class="text-center"><p>1.05</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Flight Test Operations Cost</p></td>
+<td class="text-center"><p>0.50</p></td>
+<td class="text-center"><p>-</p></td>
+<td class="text-center"><p>-</p></td>
+<td class="text-center"><p>-</p></td>
+<td class="text-center"><p>-</p></td>
+<td class="text-center"><p>1.50</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Quality Control Cost</p></td>
+<td class="text-center"><p>0.50</p></td>
+<td class="text-center"><p>1.50</p></td>
+<td class="text-center"><p>-</p></td>
+<td class="text-center"><p>-</p></td>
+<td class="text-center"><p>-</p></td>
+<td class="text-center"><p>1.50</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Materials Cost</p></td>
+<td class="text-center"><p>0.75</p></td>
+<td class="text-center"><p>-</p></td>
+<td class="text-center"><p>-</p></td>
+<td class="text-center"><p>1.02</p></td>
+<td class="text-center"><p>1.01</p></td>
+<td class="text-center"><p>1.05</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="cost-of-engineering-c-eng">
+<h4>Cost of Engineering (<span class="math notranslate nohighlight">\(C_{ENG}\)</span>)<a class="headerlink" href="#cost-of-engineering-c-eng" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[𝐶_{𝐸𝑁𝐺} = 0.083 \cdot 𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}^{0.791} \cdot 𝑉_𝐻^{1.521} \cdot 𝑄^{0.183} \cdot 𝐹_{𝐶𝑒𝑟𝑡} \cdot 𝐹_{𝐶𝐹} \cdot 𝐹_{𝐶𝑜𝑚𝑝} \cdot 𝐹_{𝑃𝑟𝑒𝑠𝑠} \cdot 𝐹_{𝐻𝑦𝐸} \cdot 𝑅_{𝐸𝑁𝐺} \cdot 𝐶𝑃𝐼\]</div>
+<p><span class="math notranslate nohighlight">\(𝐶_{𝐸𝑁𝐺}\)</span> : Cost of Engineering</p>
+<p><span class="math notranslate nohighlight">\(𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}\)</span> : structural weight [lbs]</p>
+<p><span class="math notranslate nohighlight">\(𝑉_𝐻\)</span> : maximum level airspeed [KTAS]</p>
+<p><span class="math notranslate nohighlight">\(𝑄\)</span>: number of aircraft to be produced over a 5-year period</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝐶𝑒𝑟𝑡}\)</span>: Factor for LSA certification</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝐶𝐹}\)</span>: FFactor for complex flap system</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝑃𝑟𝑒𝑠𝑠}\)</span>: Factor for pressurized cabin</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝐻𝑦𝐸}\)</span>: Factor for hybrid-electric propulsion</p>
+<p><span class="math notranslate nohighlight">\(𝑅_{𝐸𝑁𝐺}\)</span>: rate of engineering labor in US<span class="math notranslate nohighlight">\( per hour (92\)</span>/h is recommended)</p>
+<p><span class="math notranslate nohighlight">\(𝐶𝑃𝐼\)</span>: consumer price index for consideration of inflation since 2012</p>
+</section>
+<hr class="docutils" />
+<section id="cost-of-tooling-c-tool">
+<h4>Cost of Tooling (<span class="math notranslate nohighlight">\(C_{TOOL}\)</span>)<a class="headerlink" href="#cost-of-tooling-c-tool" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[C_{𝑇𝑂𝑂𝐿} = 2.1036 \cdot 𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}^{0.764} \cdot 𝑉_𝐻^{0.899} \cdot 𝑄^{0.178} \cdot 𝑄_𝑀^{0.066} \cdot 𝐹_{𝑇𝑎𝑝𝑒𝑟} \cdot 𝐹_{𝐶𝐹} \cdot 𝐹_{𝐶𝑜𝑚𝑝} \cdot 𝐹_{𝑃𝑟𝑒𝑠𝑠} \cdot 𝐹_{𝐻𝑦𝐸} \cdot 𝑅_{𝑇𝑂𝑂𝐿} \cdot 𝐶𝑃𝐼\]</div>
+<p><span class="math notranslate nohighlight">\(C_{𝑇𝑂𝑂𝐿}\)</span>= Cost of Tooling</p>
+<p><span class="math notranslate nohighlight">\(𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}\)</span>: structural weight [lbs]</p>
+<p><span class="math notranslate nohighlight">\(𝑉_𝐻\)</span>: maximum level airspeed [KTAS]</p>
+<p><span class="math notranslate nohighlight">\(𝑄\)</span>: number of aircraft to be produced over a 5-year period</p>
+<p><span class="math notranslate nohighlight">\(𝑄_𝑀\)</span>: number of aircraft produced in one month</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝑇𝑎𝑝𝑒𝑟}\)</span>: Factor for untapered wings</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝐶𝐹}\)</span>: Factor for complex flap system</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝐶𝑜𝑚𝑝}\)</span>: Factor for 100% composites</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝑃𝑟𝑒𝑠𝑠}\)</span>: Factor for pressurized cabin</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝐻𝑦𝐸}\)</span>: Factor for hybrid-electric propulsion</p>
+<p><span class="math notranslate nohighlight">\(𝑅_{𝑇𝑂𝑂𝐿}\)</span>: rate of tooling labor in US<span class="math notranslate nohighlight">\( per hour (61\)</span>/h is recommended)</p>
+<p><span class="math notranslate nohighlight">\(𝐶𝑃𝐼\)</span>: consumer price index for consideration of inflation since 2012</p>
+</section>
+<hr class="docutils" />
+<section id="cost-of-manufacturing-c-mfg">
+<h4>Cost of Manufacturing (<span class="math notranslate nohighlight">\(C_{MFG}\)</span>)<a class="headerlink" href="#cost-of-manufacturing-c-mfg" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[𝐶_{𝑀𝐹𝐺} = 20.2588 \cdot 𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}^{0.74} \cdot 𝑉_𝐻^{0.543} \cdot 𝑄^{0.524} \cdot 𝐹_{𝐶𝑒𝑟𝑡} \cdot 𝐹_{𝐶𝐹} \cdot 𝐹_{𝐶𝑜𝑚𝑝} \cdot 𝐹_{𝐻𝑦𝐸} \cdot 𝑅_{𝑀𝐹𝐺} \cdot 𝐶𝑃𝐼\]</div>
+<p><span class="math notranslate nohighlight">\(𝐶_{𝑀𝐹𝐺}\)</span>: Cost of Manufacturing</p>
+<p><span class="math notranslate nohighlight">\(𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}\)</span>: structural weight [lbs]</p>
+<p><span class="math notranslate nohighlight">\(𝑉_𝐻\)</span>: maximum level airspeed [KTAS]</p>
+<p><span class="math notranslate nohighlight">\(𝑄\)</span>: number of aircraft to be produced over a 5-year period</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝐶𝑒𝑟𝑡}\)</span>: Factor for LSA certification</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝐶𝐹}\)</span>: Factor for complex flap system</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝐶𝑜𝑚𝑝}\)</span>: Factor for 100% composites</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝐻𝑦𝐸}\)</span>: Factor for hybrid-electric propulsion</p>
+<p><span class="math notranslate nohighlight">\(𝑅_{𝑀𝐹𝐺} \)</span>: rate of manufacturing labor in US<span class="math notranslate nohighlight">\( per hour (53\)</span>/h is recommended)</p>
+<p><span class="math notranslate nohighlight">\(𝐶𝑃𝐼\)</span>: consumer price index for consideration of inflation since 2012</p>
+</section>
+<hr class="docutils" />
+<section id="cost-of-development-support-c-dev">
+<h4>Cost of Development Support (<span class="math notranslate nohighlight">\(C_{DEV}\)</span>)<a class="headerlink" href="#cost-of-development-support-c-dev" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[𝐶_{𝐷𝐸𝑉} = 0.06458 \cdot 𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}^{0.873} \cdot 𝑉_𝐻^{1.89} \cdot 𝑄_{𝑃𝑟𝑜𝑡𝑜}^{0.346} \cdot 𝐶𝑃𝐼 \cdot 𝐹_{𝐶𝑒𝑟𝑡} \cdot 𝐹_{𝐶𝐹} \cdot 𝐹_{𝐶𝑜𝑚𝑝} \cdot 𝐹_{𝑃𝑟𝑒𝑠𝑠} \cdot 𝐹_{𝐻𝑦𝐸}\]</div>
+<p><span class="math notranslate nohighlight">\(𝐶_{𝐷𝐸𝑉}\)</span>: Cost of Development Support</p>
+<p><span class="math notranslate nohighlight">\(𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}\)</span>: structural weight [lbs]</p>
+<p><span class="math notranslate nohighlight">\(𝑉_𝐻\)</span>: maximum level airspeed [KTAS]</p>
+<p><span class="math notranslate nohighlight">\(𝑄_{𝑃𝑟𝑜𝑡𝑜}\)</span>: number of prototype aircraft to be produced</p>
+<p><span class="math notranslate nohighlight">\(𝐶𝑃𝐼\)</span>: consumer price index for consideration of inflation since 2012</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝐶𝑒𝑟𝑡}\)</span>: Factor for LSA certification</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝐶𝐹}\)</span>: Factor for complex flap system</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝐶𝑜𝑚𝑝}\)</span>: Factor for 100% composites</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝑃𝑟𝑒𝑠𝑠}\)</span>: Factor for pressurized cabin</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝐻𝑦𝐸}\)</span>: Factor for hybrid-electric propulsion</p>
+</section>
+<hr class="docutils" />
+<section id="cost-of-flight-test-operations-c-ft">
+<h4>Cost of Flight Test Operations ($C_{FT})<a class="headerlink" href="#cost-of-flight-test-operations-c-ft" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[𝐶_{𝐹𝑇} = 0.009646 \cdot 𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}^{1.16} \cdot 𝑉_𝐻^{1.3718} \cdot 𝑄_{𝑃𝑟𝑜𝑡𝑜}^{1.281} \cdot 𝐶𝑃𝐼 \cdot 𝐹_{𝐶𝑒𝑟𝑡} \cdot 𝐹_{𝐻𝑦𝐸}\]</div>
+<p><span class="math notranslate nohighlight">\(𝐶_{𝐹𝑇}\)</span>: Cost of Flight Test Operations</p>
+<p><span class="math notranslate nohighlight">\(𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}\)</span>: structural weight [lbs]</p>
+<p><span class="math notranslate nohighlight">\(𝑉_𝐻\)</span>: maximum level airspeed [KTAS]</p>
+<p><span class="math notranslate nohighlight">\(𝑄_{𝑃𝑟𝑜𝑡𝑜}\)</span>: number of prototype aircraft to be produced</p>
+<p><span class="math notranslate nohighlight">\(𝐶𝑃𝐼\)</span>: consumer price index for consideration of inflation since 2012</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝐶𝑒𝑟𝑡}\)</span>: Factor for LSA certification</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝐻𝑦𝐸}\)</span>: Factor for hybrid-electric propulsion</p>
+</section>
+<hr class="docutils" />
+<section id="cost-of-quality-control-c-qc">
+<h4>Cost of Quality Control (<span class="math notranslate nohighlight">\(C_{QC}\)</span>)<a class="headerlink" href="#cost-of-quality-control-c-qc" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[𝐶_{𝑄𝐶} = 0.13 \cdot 𝐶_{𝑀𝐹𝐺} \cdot 𝐹_{𝐶𝐸𝑅𝑇} \cdot 𝐹_{𝐶𝑂𝑀𝑃} \cdot 𝐹_{𝐻𝑦𝐸}\]</div>
+<p><span class="math notranslate nohighlight">\(𝐶_{𝑄𝐶}\)</span>: Cost of Quality Control</p>
+<p><span class="math notranslate nohighlight">\(𝐶_{𝑀𝐹𝐺}\)</span>: Cost of Manufacturing</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝐶𝐸𝑅𝑇}\)</span>: Factor for LSA certification</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝐶𝑂𝑀𝑃}\)</span>: Factor for 100% composites</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝐻𝑦𝐸}\)</span>: Factor for hybrid-electric propulsion</p>
+</section>
+<hr class="docutils" />
+<section id="cost-of-materials-c-mat">
+<h4>Cost of Materials (<span class="math notranslate nohighlight">\(C_{MAT}\)</span>)<a class="headerlink" href="#cost-of-materials-c-mat" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[𝐶_{𝑀𝐴𝑇} = 24.896 \cdot 𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}^{0.689} \cdot 𝑉_𝐻^{0.624} \cdot 𝑄^{0.792} \cdot 𝐶𝑃𝐼 \cdot 𝐹_{𝐶𝑒𝑟𝑡} \cdot 𝐹_{𝐶𝐹} \cdot 𝐹_{𝑃𝑟𝑒𝑠𝑠} \cdot 𝐹_{𝐻𝑦𝐸}\]</div>
+<p><span class="math notranslate nohighlight">\(𝐶_{𝑀𝐴𝑇}\)</span>: Cost of Materials</p>
+<p><span class="math notranslate nohighlight">\(𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}\)</span>: structural weight [lbs]</p>
+<p><span class="math notranslate nohighlight">\(𝑉_𝐻\)</span>: maximum level airspeed [KTAS]</p>
+<p><span class="math notranslate nohighlight">\(𝑄\)</span>: number of aircraft to be produced over a 5-year period</p>
+<p><span class="math notranslate nohighlight">\(𝐶𝑃𝐼\)</span>: consumer price index for consideration of inflation since 2012</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝐶𝑒𝑟𝑡}\)</span>: Factor for LSA certification</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝐶𝐹}\)</span>: Factor for complex flap system</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝑃𝑟𝑒𝑠𝑠}\)</span>: Factor for pressurized cabin</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝐻𝑦𝐸}\)</span>: Factor for hybrid-electric propulsion</p>
+</section>
+<hr class="docutils" />
+<section id="cost-of-the-propulsion-system">
+<h4>Cost of the propulsion system<a class="headerlink" href="#cost-of-the-propulsion-system" title="Permalink to this headline"></a></h4>
+<p>DAPCA does not account for electric propulsion systems, avionics or other systems. The cost for these must be added to the cost of the airframe.</p>
+</section>
+<hr class="docutils" />
+<section id="quantity-discount-factor-qdf">
+<h4>Quantity Discount Factor (QDF)<a class="headerlink" href="#quantity-discount-factor-qdf" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[𝑄𝐷𝐹 = (𝐹_{𝐸𝑋𝑃})^{1.4427 \cdot \ln(𝑄)}\]</div>
+<p><span class="math notranslate nohighlight">\(𝑄𝐷𝐹\)</span> : Quantity Discount Factor</p>
+<p><span class="math notranslate nohighlight">\(𝐹_{𝐸𝑋𝑃}\)</span>: factor of the workers’ experience effectiveness / quantity discount (0.95 is recommended)</p>
+<p><span class="math notranslate nohighlight">\(𝑄\)</span>: number of aircraft to be produced over a 5-year period</p>
+</section>
+<hr class="docutils" />
+<section id="insurance-product-liability-cost">
+<h4>Insurance / Product Liability Cost<a class="headerlink" href="#insurance-product-liability-cost" title="Permalink to this headline"></a></h4>
+<p>values of 15–20% of the total cost</p>
+</section>
+<section id="profit">
+<h4>Profit<a class="headerlink" href="#profit" title="Permalink to this headline"></a></h4>
+<p>10% of the total cost to produce (including insurance cost) seem reasonable.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="single-source-aircraft">
+<h3>Single Source Aircraft<a class="headerlink" href="#single-source-aircraft" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>This model’s reference is “Raymer, Aircraft Design.”</p></li>
+</ul>
+<section id="engineering-hours">
+<h4>Engineering hours<a class="headerlink" href="#engineering-hours" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[𝐻_𝐸=4.86 \cdot 𝑊_e^{0.777} \cdot 𝑉_{𝑚𝑎𝑥}^{0.894} \cdot Q^{0.163} \;\ \{fps\} \]</div>
+<div class="math notranslate nohighlight">
+\[𝐻_𝐸=4.86\cdot 𝑊_e^{0.777} \cdot 𝑉_{𝑚𝑎𝑥}^{0.894} \cdot Q^{0.163} \;\ \{mks\} \]</div>
+<p><span class="math notranslate nohighlight">\(𝐻_𝐸\)</span>: Engineering hours</p>
+<p><span class="math notranslate nohighlight">\(𝑊_e\)</span>: empty weight [(lb) or {kg}]</p>
+<p><span class="math notranslate nohighlight">\(𝑉_{𝑚𝑎𝑥}\)</span>: maximum velocity [(kt) or{km/h}]</p>
+<p><span class="math notranslate nohighlight">\(Q\)</span>: lesser of production quantity or number to be produced in five years</p>
+</section>
+<hr class="docutils" />
+<section id="tooling-hours">
+<h4>Tooling Hours<a class="headerlink" href="#tooling-hours" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[𝐻_𝑇=5.99 \cdot 𝑊_e^{0.777} \cdot 𝑉_{𝑚𝑎𝑥}^{0.696} \cdot Q^{0.263} \;\ \{fps\}\]</div>
+<div class="math notranslate nohighlight">
+\[𝐻_𝑇=7.22 \cdot 𝑊_e^{0.777} \cdot 𝑉_{𝑚𝑎𝑥}^{0.696} \cdot Q^{0.263} \;\ \{mks\}\]</div>
+<p><span class="math notranslate nohighlight">\(𝐻_𝑇\)</span> : Tooling Hours</p>
+<p><span class="math notranslate nohighlight">\(𝑊_e\)</span>: empty weight [(lb) or {kg}]</p>
+<p><span class="math notranslate nohighlight">\(𝑉_{𝑚𝑎𝑥}\)</span>: maximum velocity [(kt) or{km/h}]</p>
+<p><span class="math notranslate nohighlight">\(Q\)</span>: lesser of production quantity or number to be produced in five years</p>
+<p>–</p>
+</section>
+<section id="manufacturing-hours">
+<h4>Manufacturing Hours<a class="headerlink" href="#manufacturing-hours" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[𝐻_𝑀=7.37 \cdot 𝑊_e^{0.82} \cdot 𝑉_{𝑚𝑎𝑥}^{0.484} \cdot Q^{0.641} \;\ \{fps\}\]</div>
+<div class="math notranslate nohighlight">
+\[𝐻_𝑀=10.5 \cdot 𝑊_e^{0.82} \cdot 𝑉_{𝑚𝑎𝑥}^{0.484} \cdot Q^{0.641} \;\ \{mks\}\]</div>
+<p><span class="math notranslate nohighlight">\(𝐻_𝑀\)</span>: Manufacturing Hours</p>
+<p><span class="math notranslate nohighlight">\(𝑊_e\)</span>: empty weight [(lb) or {kg}]</p>
+<p><span class="math notranslate nohighlight">\(𝑉_{𝑚𝑎𝑥}\)</span>: maximum velocity [(kt) or{km/h}]</p>
+<p><span class="math notranslate nohighlight">\(Q\)</span>: lesser of production quantity or number to be produced in five years</p>
+</section>
+<hr class="docutils" />
+<section id="quality-control-hours">
+<h4>Quality Control Hours<a class="headerlink" href="#quality-control-hours" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[𝐻_𝑄=0.076 \cdot 𝐻_𝑀 \;\ {if \;\ cargo  \;\ airplane} \]</div>
+<div class="math notranslate nohighlight">
+\[𝐻_𝑄=0.076\cdot 𝐻_𝑀  \;\ {otherwise} \]</div>
+<p><span class="math notranslate nohighlight">\(𝐻_𝑄\)</span>: Quality Control Hours</p>
+<p><span class="math notranslate nohighlight">\(𝐻_𝑀\)</span>: Manufacturing Hours</p>
+</section>
+<hr class="docutils" />
+<section id="development-support-cost">
+<h4>Development Support Cost<a class="headerlink" href="#development-support-cost" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[𝐶_𝐷=91.3\cdot 𝑊_e^{0.630} \cdot 𝑉_{𝑚𝑎𝑥}^{1.3} \;\ \{fps\}\]</div>
+<div class="math notranslate nohighlight">
+\[𝐶_𝐷=67.4\cdot 𝑊_e^{0.630} \cdot 𝑉_{𝑚𝑎𝑥}^{1.3} \;\ \{mks\}\]</div>
+<p><span class="math notranslate nohighlight">\(𝐶_𝐷\)</span>: Development Support Cost</p>
+<p><span class="math notranslate nohighlight">\(𝑊_e\)</span>: empty weight [(lb) or {kg}]</p>
+<p><span class="math notranslate nohighlight">\(𝑉_{𝑚𝑎𝑥}\)</span>: maximum velocity [(kt) or{km/h}]</p>
+</section>
+<hr class="docutils" />
+<section id="flight-test-cost">
+<h4>Flight Test Cost<a class="headerlink" href="#flight-test-cost" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[𝐶_𝐹=2498 \cdot 𝑊_e^{0.325} \cdot 𝑉_{𝑚𝑎𝑥}^{0.822} \cdot FTA^{1.21} \;\ \{fps\}\]</div>
+<div class="math notranslate nohighlight">
+\[𝐶_𝐹=1947 \cdot 𝑊_e^{0.325} \cdot 𝑉_{𝑚𝑎𝑥}^{0.822} \cdot FTA^{1.21} \;\ \{mks\}\]</div>
+<p><span class="math notranslate nohighlight">\(𝐶_𝐹\)</span>: Flight Test Cost</p>
+<p><span class="math notranslate nohighlight">\(𝑊_e\)</span>: empty weight [(lb) or {kg}]</p>
+<p><span class="math notranslate nohighlight">\(𝑉_{𝑚𝑎𝑥}\)</span>: maximum velocity [(kt) or{km/h}]</p>
+<p><span class="math notranslate nohighlight">\(FTA\)</span>: umber of flight-test aircraft (typically 2 -6)</p>
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="rdt-e">
+<h4>RDT&amp;E<a class="headerlink" href="#rdt-e" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[H_ER_E +H_TR_T+ H_MR_M + H_QR_Q +C_D+C_F\]</div>
+<p><span class="math notranslate nohighlight">\(H_E\)</span> : Engineering hours</p>
+<p><span class="math notranslate nohighlight">\(H_T\)</span> : Tooling Hours</p>
+<p><span class="math notranslate nohighlight">\(H_M\)</span> : Manufacturing Hours</p>
+<p><span class="math notranslate nohighlight">\(H_Q\)</span>: Quality Control Hours</p>
+<p><span class="math notranslate nohighlight">\(C_D\)</span> : Development Support Cost</p>
+<p><span class="math notranslate nohighlight">\(C_F\)</span> : Flight Test Cost</p>
+<p><span class="math notranslate nohighlight">\(C_M\)</span> : Manufacturing Materials Cost</p>
+<p><span class="math notranslate nohighlight">\(C_{eng}\)</span> : Engine production cost</p>
+<p><span class="math notranslate nohighlight">\(N_{eng}\)</span> : total production quantity times number of engines per aircraft</p>
+<p><span class="math notranslate nohighlight">\(C_{avionics}\)</span> :
+avionics costs must be estimated from data on similar aircraft or from vendors’ quotations. Avionics costs range from roughly 5 - 25% of flyaway cost depending upon sophistication or can be approximated as <span class="math notranslate nohighlight">\(4000 -\)</span>8000 per pound {<span class="math notranslate nohighlight">\(9000 -\)</span>18,000 per kg} in 2012 dollars.</p>
+<p><span class="math notranslate nohighlight">\(R_E, R_T, R_M, R_Q\)</span>:
+These hourly rates are called “wrap rates” because they include the direct salaries paid to employees as well as the employee benefits, overhead, and administrative costs.</p>
+</section>
+<hr class="docutils" />
+<section id="average-wrap-rates-adjusted-to-2012">
+<h4>Average wrap rates (adjusted to 2012)<a class="headerlink" href="#average-wrap-rates-adjusted-to-2012" title="Permalink to this headline"></a></h4>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p></p></th>
+<th class="text-center head"><p></p></th>
+<th class="text-center head"><p></p></th>
+<th class="text-center head"><p></p></th>
+<th class="text-center head"><p></p></th>
+<th class="text-center head"><p></p></th>
+<th class="text-center head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Engineering</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(R_E\)</span> = $115</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Tooling Cost</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(R_T\)</span> = $118</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Quality Control Cost</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(R_Q\)</span> = $108</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Materials Cost</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(R_M\)</span> =$98</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="recurring-cost">
+<h2>Recurring Cost<a class="headerlink" href="#recurring-cost" title="Permalink to this headline"></a></h2>
+<p>Recurring Cost is from unit aircraft production.</p>
+<hr class="docutils" />
+<section id="airframe-components-cost-1-modified-dapca-iv">
+<h3>Airframe Components Cost 1 [Modified DAPCA IV]<a class="headerlink" href="#airframe-components-cost-1-modified-dapca-iv" title="Permalink to this headline"></a></h3>
+<div class="math notranslate nohighlight">
+\[𝐶_𝑀=22.1\cdot 𝑊_e^{0.921} \cdot 𝑉_{𝑚𝑎𝑥}^{0.621}\cdot Q^{0.799} \;\ \{fps\}\]</div>
+<div class="math notranslate nohighlight">
+\[𝐶_𝑀=31.2\cdot 𝑊_e^{0.921} \cdot 𝑉_{𝑚𝑎𝑥}^{0.621} \cdot Q^{0.799} \;\ \{mks\}\]</div>
+<p><span class="math notranslate nohighlight">\(𝐶_𝑀\)</span>: Manufacturing Materials Cost</p>
+<p><span class="math notranslate nohighlight">\(𝑊_e\)</span>: empty weight [(lb) or {kg}]</p>
+<p><span class="math notranslate nohighlight">\(𝑉_{𝑚𝑎𝑥}\)</span>: maximum velocity [(kt) or{km/h}]</p>
+<p><span class="math notranslate nohighlight">\(Q\)</span>: lesser of production quantity or number to be produced in five years</p>
+</section>
+<hr class="docutils" />
+<section id="airframe-components-cost-2-beltramo">
+<h3>Airframe Components Cost 2 [Beltramo]<a class="headerlink" href="#airframe-components-cost-2-beltramo" title="Permalink to this headline"></a></h3>
+<hr class="docutils" />
+<section id="wing">
+<h4>Wing<a class="headerlink" href="#wing" title="Permalink to this headline"></a></h4>
+<p><span class="math notranslate nohighlight">\(C_{wing}=1730\cdot W_{wing}^{0.766}\cdot Q^{-0.218}\)</span></p>
+<p>Input Parameter</p>
+<p><span class="math notranslate nohighlight">\(W_{wing}\)</span>: Wing Weight</p>
+<p>Q: Quantitiy of Aircraft</p>
+<p>Output Parameter</p>
+<p><span class="math notranslate nohighlight">\(C_{wing}\)</span>:  Wing Cost</p>
+</section>
+<hr class="docutils" />
+<section id="tail">
+<h4>Tail<a class="headerlink" href="#tail" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[C_{tail}=1820⋅W_w^{0.766}⋅Q^{-0.218}\]</div>
+<p><span class="math notranslate nohighlight">\(C_{tail}\)</span>: tail cost</p>
+<p><span class="math notranslate nohighlight">\(W_w\)</span>: Wing Weight</p>
+<p><span class="math notranslate nohighlight">\(Q\)</span>: Quantity of Aircraft</p>
+</section>
+<hr class="docutils" />
+<section id="fuselage">
+<h4>Fuselage<a class="headerlink" href="#fuselage" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[C_f=2060⋅W_f^{0.766}⋅Q^{-0.218}\]</div>
+<p><span class="math notranslate nohighlight">\(C_f\)</span>: fuselage cost</p>
+<p><span class="math notranslate nohighlight">\(W_f\)</span>: fuselage weight</p>
+<p><span class="math notranslate nohighlight">\(Q\)</span>: Quantity of Aircraft</p>
+</section>
+<hr class="docutils" />
+<section id="airframe-unconventional-part">
+<h4>Airframe Unconventional Part<a class="headerlink" href="#airframe-unconventional-part" title="Permalink to this headline"></a></h4>
+</section>
+<section id="canard">
+<h4>Canard<a class="headerlink" href="#canard" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[C_{canard}=1730⋅W_{canard}^{0.766}⋅Q^{-0.218}\]</div>
+<p><span class="math notranslate nohighlight">\(C_{canard}\)</span>: canard cost</p>
+<p><span class="math notranslate nohighlight">\(W_{canard}\)</span>: canard weight</p>
+<p><span class="math notranslate nohighlight">\(Q\)</span>: Quantity of Aircraft</p>
+</section>
+<hr class="docutils" />
+<section id="connector">
+<h4>Connector<a class="headerlink" href="#connector" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[C_{cn}=1820⋅W_{cn}^{0.766}⋅Q^{-0.218}\]</div>
+<p><span class="math notranslate nohighlight">\(C_{cn}\)</span>: connector cost</p>
+<p><span class="math notranslate nohighlight">\(W_{cn}\)</span>: connector weight</p>
+<p><span class="math notranslate nohighlight">\(Q\)</span>: Quantity of Aircraft</p>
+</section>
+<hr class="docutils" />
+<section id="box-wing">
+<h4>Box wing<a class="headerlink" href="#box-wing" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[C_{boxwing}=C_(w,front)+C_{w,rear}+2⋅C_{cn}\]</div>
+<p><span class="math notranslate nohighlight">\(C_{boxwing}\)</span>: box wing cost</p>
+<p><span class="math notranslate nohighlight">\(C_(w,front)\)</span>: front wing cost</p>
+<p><span class="math notranslate nohighlight">\(C_{w,rear}\)</span>: rear wing cost</p>
+<p><span class="math notranslate nohighlight">\(C_{cn}\)</span>: connector cost</p>
+<div class="math notranslate nohighlight">
+\[C_{w,front/rear}=1730⋅W_{w,front/rear}^{0.766⋅}Q^{-0.218}\]</div>
+<p><span class="math notranslate nohighlight">\(C_{w,front/rear}\)</span>: front/rear wing cost</p>
+<p><span class="math notranslate nohighlight">\(W_{w,front/rear}\)</span>: front/rear wing weight</p>
+<p><span class="math notranslate nohighlight">\(Q\)</span>: Quantity of Aircraft</p>
+</section>
+<hr class="docutils" />
+<section id="blended-wing">
+<h4>Blended wing<a class="headerlink" href="#blended-wing" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[C_{w,bwb}=1730⋅W_{w,bwb}^{0.766}⋅Q^{-0.218}\]</div>
+<p><span class="math notranslate nohighlight">\(C_{w,bwb}\)</span>: blended wing cost</p>
+<p><span class="math notranslate nohighlight">\(W_{w,bwb}\)</span>: blended wing weight</p>
+<p><span class="math notranslate nohighlight">\(Q\)</span>: Quantity of Aircraft</p>
+</section>
+<hr class="docutils" />
+<section id="oval-fuselage">
+<h4>Oval fuselage<a class="headerlink" href="#oval-fuselage" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[C_{f,oval}=2060⋅W_{f,oval}^{0.766}⋅Q^{-0.218}\]</div>
+<p><span class="math notranslate nohighlight">\(C_{f,oval}\)</span>: Oval fuselage cost</p>
+<p><span class="math notranslate nohighlight">\(W_{f,oval}\)</span>: Oval fuselage weight</p>
+<p><span class="math notranslate nohighlight">\(Q\)</span>: Quantity of Aircraft</p>
+</section>
+<hr class="docutils" />
+<section id="electric-motor-cost">
+<h4>Electric Motor Cost<a class="headerlink" href="#electric-motor-cost" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[𝐶_{𝐸𝑀}=174⋅𝑁_{Motor} ⋅𝑃_{𝐸𝑀}⋅𝐶𝑃𝐼\]</div>
+<p><span class="math notranslate nohighlight">\(N_{Motor}\)</span> = Number of motor</p>
+<p><span class="math notranslate nohighlight">\(𝑃_{𝐸𝑀}\)</span> = rated power of electric motor [hp]</p>
+<p><span class="math notranslate nohighlight">\(𝐶𝑃𝐼\)</span>= consumer price index for consideration of inflation since 2012</p>
+</section>
+<hr class="docutils" />
+<section id="power-management-system-cost">
+<h4>Power Management System Cost<a class="headerlink" href="#power-management-system-cost" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[C_{PMS}=150⋅P_{EM,tot}⋅CPI\]</div>
+<p><span class="math notranslate nohighlight">\(C_{PMS}\)</span>: Power Management System Cost</p>
+<p><span class="math notranslate nohighlight">\(P_{EM,tot}\)</span>: = rated power of total electric Motor [hp]</p>
+<p><span class="math notranslate nohighlight">\(𝐶𝑃𝐼\)</span>= consumer price index for consideration of inflation since 2012</p>
+</section>
+<hr class="docutils" />
+<section id="battery-cost">
+<h4>Battery Cost<a class="headerlink" href="#battery-cost" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[C_{BAT}=200 \cdot E_{BAT}⋅CPI\]</div>
+<p><span class="math notranslate nohighlight">\(C_{BAT}\)</span>: Battery Cost</p>
+<p><span class="math notranslate nohighlight">\(E_{BAT}\)</span>: Battery capacity</p>
+<p>Unit price : 200$/kWh</p>
+<p><span class="math notranslate nohighlight">\(𝐶𝑃𝐼\)</span>= consumer price index for consideration of inflation since 2012</p>
+</section>
+<hr class="docutils" />
+<section id="propeller-cost">
+<h4>Propeller Cost<a class="headerlink" href="#propeller-cost" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[𝐶_{CSProp} =210⋅𝑁_{prop} ⋅𝐶𝑃𝐼⋅𝐷_𝑝^2⋅(𝑃_{𝑆𝐻𝑃}/𝐷_𝑝 )^{0.12}\]</div>
+<p><span class="math notranslate nohighlight">\(𝐶_{CSProp}\)</span> : Propeller Cost</p>
+<p><span class="math notranslate nohighlight">\(𝑁_{prop}\)</span> : number of propeller</p>
+<p><span class="math notranslate nohighlight">\(𝐶𝑃𝐼\)</span>= consumer price index for consideration of inflation since 2012</p>
+<p><span class="math notranslate nohighlight">\(𝐷_𝑝\)</span> : diameter of the propeller</p>
+<p><span class="math notranslate nohighlight">\(𝑃_{𝑆𝐻𝑃}\)</span>: propeller shaft horse power</p>
+</section>
+<hr class="docutils" />
+<section id="landing-gear">
+<h4>Landing Gear<a class="headerlink" href="#landing-gear" title="Permalink to this headline"></a></h4>
+<p>If the aircraft is equipped with a fixed landing gear, $7500 can be subtracted from the cost.</p>
+</section>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="operating-cost">
+<h1>Operating Cost<a class="headerlink" href="#operating-cost" title="Permalink to this headline"></a></h1>
+<p>Operating Cost = Direct operating cost + Indirect operating cost</p>
+<section id="direct-operating-cost">
+<h2>Direct Operating Cost<a class="headerlink" href="#direct-operating-cost" title="Permalink to this headline"></a></h2>
+<p>Direct Operating Cost = Flight + Maintenance + Depreciation + Airport Fee(Nav,airport,tax) + Financing</p>
+<hr class="docutils" />
+<section id="block-time-and-flight-cycles-model">
+<h3>Block Time and Flight Cycles model<a class="headerlink" href="#block-time-and-flight-cycles-model" title="Permalink to this headline"></a></h3>
+<p>This model is came from UNIFER 19
+Considering Taxing Time</p>
+<section id="block-time">
+<h4>Block time<a class="headerlink" href="#block-time" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[T_{block}=T_{flight}+0.33\]</div>
+<p><span class="math notranslate nohighlight">\(T_{block}\)</span> : Block Time</p>
+<p><span class="math notranslate nohighlight">\(T_{flight}\)</span> : Flight time</p>
+</section>
+<section id="flight-cycles-per-year">
+<h4>Flight cycles per year<a class="headerlink" href="#flight-cycles-per-year" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[FC = 3750/(T_{block}+0.5)\]</div>
+<p><span class="math notranslate nohighlight">\(FC\)</span>: Flight cycles per year</p>
+<p><span class="math notranslate nohighlight">\(T_{block}\)</span> : Block Time</p>
+</section>
+<section id="utilisation-rate">
+<h4>Utilisation Rate<a class="headerlink" href="#utilisation-rate" title="Permalink to this headline"></a></h4>
+<p><span class="math notranslate nohighlight">\(U_{ann}=FC\cdot T_{block} \)</span></p>
+<p><span class="math notranslate nohighlight">\(U_{ann}\)</span> : Utilisation rate</p>
+<p><span class="math notranslate nohighlight">\(FC\)</span>: Flight cycles per year</p>
+<p><span class="math notranslate nohighlight">\(T_{block}\)</span> : Block time</p>
+</section>
+<section id="cost-per-available-seat-kilometer-cask">
+<h4>Cost per available seat kilometer(CASK)<a class="headerlink" href="#cost-per-available-seat-kilometer-cask" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[CASK=DOC_{total}/N_{seats}\cdot D_{km}\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="flight-cost">
+<h3>Flight Cost<a class="headerlink" href="#flight-cost" title="Permalink to this headline"></a></h3>
+<section id="flight-cost-of-pilot-1">
+<h4>Flight Cost of Pilot 1<a class="headerlink" href="#flight-cost-of-pilot-1" title="Permalink to this headline"></a></h4>
+<p>Cees Bil, “Cost Estimation Methods for Hybrid-Electric General Aviation Aircraft”
+$<span class="math notranslate nohighlight">\(C_{pilot}=R_{pilot}\cdot N_{pilot}\cdot 1.5\cdot t_{flight}\)</span>$</p>
+<p><span class="math notranslate nohighlight">\(R_{pilot}\)</span> : Rate of Pilot</p>
+<p><span class="math notranslate nohighlight">\(N_{pilot}\)</span> : Number of Pilot</p>
+<p><span class="math notranslate nohighlight">\(t_{flight}\)</span> :  Flight Time(hour)</p>
+<p><span class="math notranslate nohighlight">\(C_{pilot}\)</span> : Cost of Pilot</p>
+</section>
+<section id="flight-cost-of-pilot-2">
+<h4>Flight Cost of Pilot 2<a class="headerlink" href="#flight-cost-of-pilot-2" title="Permalink to this headline"></a></h4>
+<p>UNIFER 19 Reference is not used becuase we don’t use any cabin crew</p>
+</section>
+<section id="flight-cost-of-battery">
+<h4>Flight Cost of Battery<a class="headerlink" href="#flight-cost-of-battery" title="Permalink to this headline"></a></h4>
+<div class="math notranslate nohighlight">
+\[C_{batt}=\tau_{batt}\cdot E_{flight}/(\eta_{charge}\cdot \eta_{charger})\]</div>
+<p>Input Parameter</p>
+<p><span class="math notranslate nohighlight">\(\tau_{batt}\)</span> : kWh per dollar for Battery Charge</p>
+<p><span class="math notranslate nohighlight">\(E_{flight}\)</span> : Consumed Battery Energy throughout a flight</p>
+<p><span class="math notranslate nohighlight">\(\eta_{charge}\)</span> : Bettery’s Charging Efficiency</p>
+<p><span class="math notranslate nohighlight">\(\eta_{charger}\)</span> : Charger Efficiency</p>
+</section>
+<section id="flight-cost-of-hydrogen-fuel">
+<h4>Flight Cost of Hydrogen Fuel<a class="headerlink" href="#flight-cost-of-hydrogen-fuel" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p>Will be update at 3 Quarter</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[C_{fuel}=\tau_{fuel}\cdot m_{fuel}\]</div>
+<p>$\tau_{fuel}$: kg per dollar for Hydrogen Fuel Charge</p>
+<p><span class="math notranslate nohighlight">\(m_{fuel}\)</span>: Consumed Hydrogen Fuel Mass throughout a flight</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="maintenance-cost">
+<h3>Maintenance Cost<a class="headerlink" href="#maintenance-cost" title="Permalink to this headline"></a></h3>
+<section id="total-maintenance-cost-reference-1">
+<h4>Total Maintenance Cost Reference 1<a class="headerlink" href="#total-maintenance-cost-reference-1" title="Permalink to this headline"></a></h4>
+<p>Cees Bil, “Cost Estimation Methods for Hybrid-Electric General Aviation Aircraft”</p>
+<p>Including Every Maintenance Cost</p>
+<div class="math notranslate nohighlight">
+\[C_{mat}=R_{AP}\cdot F_{mat,hour}\cdot t_{flight}\]</div>
+<p>Input Parameter</p>
+<p><span class="math notranslate nohighlight">\(R_{AP}\)</span> : Rate of the certified mechanic(typically 60 dollar per hours)</p>
+<p><span class="math notranslate nohighlight">\(F_{mat,hour}\)</span>: Maintenance hours</p>
+<p><span class="math notranslate nohighlight">\(t_{flight}\)</span>: flight time</p>
+</section>
+<section id="maintenance-of-airframe">
+<h4>Maintenance of Airframe<a class="headerlink" href="#maintenance-of-airframe" title="Permalink to this headline"></a></h4>
+<p>S.O.L. Zijp, “Development of a Life Cycle Cost Model for Conventional and Unconventional Aircraft”</p>
+<div class="math notranslate nohighlight">
+\[MH_{af,bl}=3+0.067\cdot W_{af}/1000\]</div>
+<div class="math notranslate nohighlight">
+\[C_{lab,af}=1.03\cdot MH_{af,bl}\cdot R_{mt}/V_{bl}\]</div>
+<div class="math notranslate nohighlight">
+\[C_{mat,af,bl}=30\cdot ATF+0.79\cdot 10^-5\cdot P_{af}\]</div>
+<div class="math notranslate nohighlight">
+\[C_{mat,af}=1.03\cdot C_{mat,af,bl}/V_{bl}\]</div>
+<p><span class="math notranslate nohighlight">\(MH_{af,bl}\)</span> : Labor hours required for the airframe</p>
+<p><span class="math notranslate nohighlight">\(W_{af}\)</span> : Airframe weight</p>
+<p><span class="math notranslate nohighlight">\(C_{lab,af}\)</span> : Labor cost for airframe maintenance</p>
+<p><span class="math notranslate nohighlight">\(R_{mt}\)</span> : Labor rate for maintenance</p>
+<p><span class="math notranslate nohighlight">\(V_{bl}\)</span> : Speed in block hours</p>
+<p><span class="math notranslate nohighlight">\(C_{mat,af,bl}\)</span> : Cost of meterials for airframe maintenance per block hour</p>
+<p><span class="math notranslate nohighlight">\(ATF\)</span>: Aircraft type factor</p>
+<p><span class="math notranslate nohighlight">\(P_{af}\)</span>:Airframe price</p>
+<p><span class="math notranslate nohighlight">\(C_{mat,af}\)</span>: Cost of materials for airframe maintenance per nautical mile</p>
+<p><span class="math notranslate nohighlight">\(C_{mat,af,bl}\)</span>: Cost of meterials for airframe maintenance per block hour</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="depreciation-cost">
+<h3>Depreciation Cost<a class="headerlink" href="#depreciation-cost" title="Permalink to this headline"></a></h3>
+<div class="math notranslate nohighlight">
+\[C_{depreciation}=C_{depr,aircraft}+C_{depr,battery}+C_{depr,propeller}\]</div>
+<section id="depreciation-of-aircraft">
+<h4>Depreciation of Aircraft<a class="headerlink" href="#depreciation-of-aircraft" title="Permalink to this headline"></a></h4>
+<p>Cees Bil, “Cost Estimation Methods for Hybrid-Electric General Aviation Aircraft”</p>
+<div class="math notranslate nohighlight">
+\[C_{depr,aircraft}=\frac {P_{aircraft}}{n_{flights}}\]</div>
+<p>Input Parameter</p>
+<p><span class="math notranslate nohighlight">\(C_{depr,aircraft}\)</span> : Aircraft Depreciation Cost</p>
+<p><span class="math notranslate nohighlight">\(P_{aircraft}\)</span> : Aircraft List price</p>
+<p><span class="math notranslate nohighlight">\(n_{flights}\)</span> :  Total number of flights</p>
+</section>
+<section id="depreciation-of-battery">
+<h4>Depreciation of Battery<a class="headerlink" href="#depreciation-of-battery" title="Permalink to this headline"></a></h4>
+<p>박민준,”전기추진수직이착륙기의 초기사이징에 대한 배터리 민감도 분석”
+$<span class="math notranslate nohighlight">\(C_{dep,batt}=C_{spec,batt}\cdot (E_{block hour}\cdot T_{flight,year})/(N_{cycle,batt}\cdot (1-0.5(1-SOH))\cdot N_{charge,per,flight,hour})\)</span>$</p>
+<p>Input Parameter</p>
+<p><span class="math notranslate nohighlight">\(C_{dep,batt}\)</span> : Battery depreciation cost</p>
+<p><span class="math notranslate nohighlight">\(C_{spec,batt}\)</span> : Specific Battery cost ($/kWh)</p>
+<p><span class="math notranslate nohighlight">\(E_{block hour}\)</span> : Total battery energy from block hour(entire mission)</p>
+<p><span class="math notranslate nohighlight">\(T_{flight,year}\)</span> : Annual Flight hour</p>
+<p><span class="math notranslate nohighlight">\(N_{cycle,batt}\)</span> : Battery life cycle</p>
+<p><span class="math notranslate nohighlight">\(SOH\)</span> : State of Health</p>
+<p><span class="math notranslate nohighlight">\(N_{charge,per,flight,hour}\)</span> : the number of charge time per flight hour</p>
+</section>
+<section id="depreciation-of-propeller">
+<h4>Depreciation of Propeller<a class="headerlink" href="#depreciation-of-propeller" title="Permalink to this headline"></a></h4>
+<p>S.O.L. Zijp, “Development of a Life Cycle Cost Model for Conventional and Unconventional Aircraft”
+$<span class="math notranslate nohighlight">\(C_{depr,prop}=F_{depr,prop}\cdot \frac {P_{prop}\cdot N_{prop}}{DP_{prop}\cdot U_{ann}\cdot V_{block}}\)</span>$</p>
+<p>Input Parameter</p>
+<p><span class="math notranslate nohighlight">\(C_{depr,prop}\)</span> : Depreciation cost of propeller</p>
+<p><span class="math notranslate nohighlight">\(F_{depr,prop}\)</span> : Depreciation Factor of propeller</p>
+<p><span class="math notranslate nohighlight">\(P_{prop}\)</span> : Price of propeller</p>
+<p><span class="math notranslate nohighlight">\(N_{prop}\)</span> : Number of propeller</p>
+<p><span class="math notranslate nohighlight">\(DP_{prop}\)</span> : Depreciation period of propeller</p>
+<p><span class="math notranslate nohighlight">\(U_{ann}\)</span> : Annual utilization Rate</p>
+</section>
+</section>
+</section>
+<section id="v-block">
+<h2><span class="math notranslate nohighlight">\(V_{block}\)</span><a class="headerlink" href="#v-block" title="Permalink to this headline"></a></h2>
+<section id="airport-fee">
+<h3>Airport Fee<a class="headerlink" href="#airport-fee" title="Permalink to this headline"></a></h3>
+<section id="navigation-fees">
+<h4>Navigation fees<a class="headerlink" href="#navigation-fees" title="Permalink to this headline"></a></h4>
+<p>This model is from UNIFER 19 “Final concurrent design report”</p>
+<div class="math notranslate nohighlight">
+\[C_{nav}=K_{nav}\cdot (D_{km}/100)(MTOW/50)^{0.5}\]</div>
+<p><span class="math notranslate nohighlight">\(K_{nav}\)</span> : A rate that changes for every country</p>
+<p>Western Europe = 59euro</p>
+<p>Eastern Europe = 38euro</p>
+<p>Northern Europe = 42</p>
+<p>EUROCONTROL countries = 45euro</p>
+</section>
+<section id="terminal-fees-1">
+<h4>Terminal fees 1<a class="headerlink" href="#terminal-fees-1" title="Permalink to this headline"></a></h4>
+<p>This model is from UNIFIER 19 “Final concurrent design report”
+$<span class="math notranslate nohighlight">\(C_{terminal}=K_{tnc}\cdot (MTOW/50)^{0.7}\)</span>$</p>
+<p><span class="math notranslate nohighlight">\(C_{terminal}\)</span> : Terminal fees change considerably from country to country and, in some countries, they also depend on the airport. It is important to remark that these charges apply only for bigger airports, with terminal ATC. In UFIER19, only the microfeeder market case can be impacted by these fees.(UNIFIER 19)</p>
+<p><span class="math notranslate nohighlight">\(K_{tnc}\)</span> : Average 170 euro(2020.Jan)</p>
+</section>
+<section id="terminal-fees-2">
+<h4>Terminal fees 2<a class="headerlink" href="#terminal-fees-2" title="Permalink to this headline"></a></h4>
+<p>Cees Bil, “Cost Estimation Methods for Hybrid-Electric General Aviation Aircraft”</p>
+<div class="math notranslate nohighlight">
+\[C_{Airport}=0.01\cdot (MTOW - 1100lb)\cdot F_{noise}\cdot N_{Landing}\]</div>
+<p><span class="math notranslate nohighlight">\(C_{Airport}\)</span> : The airport’s landing charges are estimated, using the equation, according to (Kreimeier, 2018). If an aircraft is expected to be noisier than category A, a surcharge factor of  <span class="math notranslate nohighlight">\(F_{Noise} = 1.45\)</span> should be applied. Otherwise, this factor should be <span class="math notranslate nohighlight">\(F_{Noise} = 1.0\)</span></p>
+</section>
+<section id="registry-tax">
+<h4>Registry Tax<a class="headerlink" href="#registry-tax" title="Permalink to this headline"></a></h4>
+<p>S.O.L. Zijp, “Development of a Life Cycle Cost Model for Conventional and Unconventional Aircraft”</p>
+<div class="math notranslate nohighlight">
+\[DOC_{init} = C_{flight}+C_{maintenance}+C_{depreciation}+C_{airport_or_terminal}+C_{navigation}\]</div>
+<div class="math notranslate nohighlight">
+\[F_{registry}=0.001+MTOW\cdot 10^{-8}\]</div>
+<div class="math notranslate nohighlight">
+\[C_{resgistry}=F_{registry}\cdot DOC\]</div>
+<p><span class="math notranslate nohighlight">\(DOC_{init}\)</span> : Initial DOC except registry and finance cost</p>
+<p><span class="math notranslate nohighlight">\(F_{registry}\)</span> : Registry tax factor</p>
+</section>
+</section>
+<section id="financing">
+<h3>Financing<a class="headerlink" href="#financing" title="Permalink to this headline"></a></h3>
+<p>S.O.L. Zijp, “Development of a Life Cycle Cost Model for Conventional and Unconventional Aircraft”</p>
+<div class="math notranslate nohighlight">
+\[C_{finance}=F_{registry}\cdot DOC_{init}\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="in-direct-operating-cost">
+<h2>In Direct Operating Cost<a class="headerlink" href="#in-direct-operating-cost" title="Permalink to this headline"></a></h2>
+<p>S.O.L. Zijp, “Development of a Life Cycle Cost Model for Conventional and Unconventional Aircraft”</p>
+<section id="center-table-2-cost-factors-for-ioc-components-center">
+<h3><center> Table 2. Cost factors for IOC components </center><a class="headerlink" href="#center-table-2-cost-factors-for-ioc-components-center" title="Permalink to this headline"></a></h3>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p>Cost Factor</p></th>
+<th class="text-center head"><p>Domestic</p></th>
+<th class="text-center head"><p>International</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(K_{1}\)</span></p></td>
+<td class="text-center"><p>0.52</p></td>
+<td class="text-center"><p>0.56</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(K_{2}\)</span></p></td>
+<td class="text-center"><p>1.86</p></td>
+<td class="text-center"><p>1.64</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(K_{3}\)</span></p></td>
+<td class="text-center"><p>23.83</p></td>
+<td class="text-center"><p>67.72</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(K_{4}\)</span></p></td>
+<td class="text-center"><p>29.33</p></td>
+<td class="text-center"><p>37.00</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(K_{5}\)</span></p></td>
+<td class="text-center"><p>0.96</p></td>
+<td class="text-center"><p>0.63</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(K_{6}\)</span></p></td>
+<td class="text-center"><p>6.56</p></td>
+<td class="text-center"><p>15.84</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(K_{7}\)</span></p></td>
+<td class="text-center"><p>98.2</p></td>
+<td class="text-center"><p>150.69</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(K_{8}\)</span></p></td>
+<td class="text-center"><p>0.0065</p></td>
+<td class="text-center"><p>0.0088</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(K_{9}\)</span></p></td>
+<td class="text-center"><p>0.0082</p></td>
+<td class="text-center"><p>0.0099</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(K_{10}\)</span></p></td>
+<td class="text-center"><p>0.048</p></td>
+<td class="text-center"><p>0.053</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="local-facilities">
+<h3>Local Facilities<a class="headerlink" href="#local-facilities" title="Permalink to this headline"></a></h3>
+<div class="math notranslate nohighlight">
+\[C_{local}=K_{2}\cdot \frac{MTOW}{1000}\cdot \frac {1+\bar{f}_{rev}}{R_{bl}}\]</div>
+<p>Input parameter</p>
+<p>MTOW : Maximum Take off weight</p>
+<p><span class="math notranslate nohighlight">\(\bar{f}_{rev}\)</span> : Revenue inflation rate</p>
+<p><span class="math notranslate nohighlight">\(R_{bl}\)</span> : Block Range</p>
+</section>
+<section id="passenger-handling">
+<h3>Passenger Handling<a class="headerlink" href="#passenger-handling" title="Permalink to this headline"></a></h3>
+<div class="math notranslate nohighlight">
+\[C_{h,pax}=K_{6}\cdot \frac {LF_{pax}\cdot N_{seat}\cdot (1+\bar{f}_{rev})}{R_{bl}}\]</div>
+<p>Input parameter</p>
+<p><span class="math notranslate nohighlight">\(LF_{pax}\)</span>: Passenger load factor</p>
+<p><span class="math notranslate nohighlight">\(N_{seat}\)</span>: Number of seats</p>
+<p><span class="math notranslate nohighlight">\(\bar{f}_{rev}\)</span>: Revenue inflation rate</p>
+<p><span class="math notranslate nohighlight">\(R_{bl}\)</span>: Block Range</p>
+</section>
+<section id="cargo-handling">
+<h3>Cargo Handling<a class="headerlink" href="#cargo-handling" title="Permalink to this headline"></a></h3>
+<div class="math notranslate nohighlight">
+\[C_{h,pax}=K_{7}\cdot W_{cargo}\cdot (1+\bar{f}_{rev})\]</div>
+<p>Input parameter</p>
+<p><span class="math notranslate nohighlight">\(W_{cargo}\)</span>: Cargo weight</p>
+<p><span class="math notranslate nohighlight">\(\bar{f}_{rev}\)</span>: Revenue inflation rate</p>
+</section>
+<section id="general-and-administrative">
+<h3>General and administrative<a class="headerlink" href="#general-and-administrative" title="Permalink to this headline"></a></h3>
+<div class="math notranslate nohighlight">
+\[C_{gen}=K_{10}\cdot (IDOC_{sub}+(DOC-C_{depr}))\cdot \frac{(1+\bar{f}_{rev})}{R_{bl}}\]</div>
+<p>Input parameter</p>
+<p><span class="math notranslate nohighlight">\(IDOC_{sub}\)</span> : Indirect operating cost</p>
+<p><span class="math notranslate nohighlight">\(DOC\)</span> : Direct operating cost</p>
+<p><span class="math notranslate nohighlight">\(C_{depr}\)</span> : Depreciation Cost</p>
+<p><span class="math notranslate nohighlight">\(\bar{f}_{rev}\)</span>: Revenue inflation rate</p>
+<p><span class="math notranslate nohighlight">\(R_{bl}\)</span>: Block Range</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="figure-of-merit-calculation">
+<h1>Figure of Merit Calculation<a class="headerlink" href="#figure-of-merit-calculation" title="Permalink to this headline"></a></h1>
+<p>We choose aircrat list price and recurring month as Figure of Merit</p>
+<section id="aircraft-list-price">
+<h2>Aircraft List Price<a class="headerlink" href="#aircraft-list-price" title="Permalink to this headline"></a></h2>
+<div class="math notranslate nohighlight">
+\[P_{List}=P_{Unit}\cdot (1+F_{earn}+F_{discount})\]</div>
+<div class="math notranslate nohighlight">
+\[P_{Unit}=\frac {C_{Non-recurring}}{Q_{quantity}}\]</div>
+<p><span class="math notranslate nohighlight">\(P_{Unit}\)</span> : Aircraft Unit Price</p>
+<p><span class="math notranslate nohighlight">\(P_{List}\)</span>: Aircraft List Price</p>
+<p><span class="math notranslate nohighlight">\(F_{earn}\)</span> : Earning rate</p>
+<p><span class="math notranslate nohighlight">\(F_{discount}\)</span>: Discount rate</p>
+<p><span class="math notranslate nohighlight">\(Q_{quantity}\)</span>: Production target quantity</p>
+</section>
+<section id="aircraft-recurring-month">
+<h2>Aircraft Recurring Month<a class="headerlink" href="#aircraft-recurring-month" title="Permalink to this headline"></a></h2>
+<div class="math notranslate nohighlight">
+\[P_{month,net}\cdot N_{month} - C_{Non-recurring}&gt;0, N_{month}\]</div>
+<div class="math notranslate nohighlight">
+\[P_{month,net} = P_{month} - C_{O.C}\]</div>
+<div class="math notranslate nohighlight">
+\[P_{total} = P_{per flight}\cdot n_{flights}\]</div>
+<div class="math notranslate nohighlight">
+\[P_{per flight} = p_{ticket}\cdot m_{payload}\cdot LF_{pax}\]</div>
+<p><span class="math notranslate nohighlight">\(N_{month}\)</span> : Operating month, recurring month when <span class="math notranslate nohighlight">\(P_{month}\cdot N_{month} - C_{Non-recurring}&gt;0\)</span></p>
+<p><span class="math notranslate nohighlight">\(LF_{pax}\)</span>: Passenger load factor</p>
+<p><span class="math notranslate nohighlight">\(C_{Non-recurring}\)</span> : Non recurring cost</p>
+<p><span class="math notranslate nohighlight">\(P_{month,net}\)</span>: Net Monthly profit</p>
+<p><span class="math notranslate nohighlight">\(P_{month}\)</span>: Monthly profit</p>
+<p><span class="math notranslate nohighlight">\(C_{O.C}\)</span>:Operating cost per month</p>
+<p><span class="math notranslate nohighlight">\(p_{ticket}\)</span> : ticket price per kg</p>
+<p><span class="math notranslate nohighlight">\(m_{payload}\)</span> : payload mass</p>
+<p><span class="math notranslate nohighlight">\(LF_{pax}\)</span>:Passenger load factor</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="eCTOL%20Sizing%20Theory%20Manual.html" class="btn btn-neutral float-left" title="eCTOL Sizing Theory Manual" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, KADA.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

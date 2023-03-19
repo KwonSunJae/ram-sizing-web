@@ -1,0 +1,45 @@
+.. ADSP documentation
+
+Aircraft Design Synthesis Program documentation
+==========================================================
+
+.. image:: fig/kada-clean-200px.png
+   :width: 200px
+   :alt: KADA
+   :align: left
+   :target: https://kada.konkuk.ac.kr
+
+ADSP is an integrated aircraft analysis, design and optimization tool. 
+The current version is written in Python 3. 
+
+User's manual
+-------------
+
+This section includes test cases with detailed description of input 
+files, and parameters. Test cases include both single discipline 
+and integrated analysis part. Examples of output are also shown
+
+.. toctree::
+    :maxdepth: 2
+    
+    getting_started
+    command_input
+
+Theory manual
+-------------
+
+This section contains theoretical description of the methods used for 
+ADSP.
+
+.. toctree::
+    :maxdepth: 2
+
+    eCTOL Sizing Theory Manual
+    Cost Theory Manual
+
+Index
+-----
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

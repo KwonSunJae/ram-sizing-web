@@ -1,0 +1,63 @@
+Command input file
+==================
+
+There is a single CSV input file that controls the whole sizing probram. 
+Command input files by default are located in ``data`` directory.
+
+
+The file is divided into three main sections and subsections. 
+ADSP performs search by the section header, so it is important to write 
+them correctly.
+
+.. csv-table:: Example of command input file
+   :file: example-command-input.csv
+
+mission_profile (mandatory)
+---------------------------
+
+The first line always contains the ``mission_profile`` keyword and the name 
+of mission to be analyzed.
+
+CONFIGRUATION (mandatory)
+--------------------------
+
+This section control the input related to configuration parameters
+
+AERODYNAMICS (mandatory)
+--------------------------
+
+This section control the input related to aerodynamcis parameters
+
+PROPULSION (mandatory)
+--------------------------
+
+This section control the input related to propulsion parameters
+
+ENERGY-SYSTEM (mandatory)
+--------------------------
+
+This section control the input related to energy system parameters
+
+
+MASS (mandatory)
+--------------------------
+
+This section control the input related to mass fraction parameters
+
+
+DESIGN VARIABLE (mandatory)
+-------------------------------
+
+This section control the input related to design variable to optimized our design
+
+OBJECTIVE (mandatory)
+--------------------------
+
+This section control the input related to objective function whether to ``min`` or ``max`` the objective function.
+
+CONSTRAINTS (mandatory)
+--------------------------
+
+This section control the input related to constraints, it can be user defined constraints.
+It can be controlled by ``leq`` for less than or equal 
+and ``geq`` for greater than or equal.

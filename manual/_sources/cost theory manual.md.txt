@@ -1,0 +1,877 @@
+# Theory manual for Cost Manual
+
+
+# Development Cost
+Development cost = Non Recurring Cost + Recurring Cost
+
+
+## Non Recurring Cost
+Non Recurring Cost is from RDT&E phase.
+
+---
+### Hybrid Aircraft
+- This model's reference is "Finger기타, “Cost Estimation Methods for Hybrid-Electric General Aviation Aircraft”."
+
+---
+#### <center> Table 1. Correction factors for design choices </center> ####
+
+|CER Category|$F_{Cert}$ <br/> Factor for LSA certification|$ 𝐹_{𝐶𝑜𝑚𝑝}$<br/>Factor for 100% composites|$𝐹_{𝑇𝑎𝑝𝑒𝑟}$<br/>Factor for untapered wings|$𝐹_{𝐶𝐹}$<br/>Factor for complex flap system|$𝐹_{𝑃𝑟𝑒𝑠𝑠}$<br/>Factor for pressurized cabin|$𝐹_{𝐻𝑦𝐸}$<br/>Factor for hybrid-electric propulsion|
+|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
+|Engineering Cost|0.67|2.00|-|1.03|1.03|1.33-1.66|
+|Tooling Cost|-|2.00|0.95|1.02|1.01|1.10|
+|Manufacturing Cost|0.75|1.25|-|1.01|-|1.10|
+|Development Support Cost|0.50|1.50|-|1.01|1.03|1.05|
+|Flight Test Operations Cost|0.50|-|-|-|-|1.50|
+|Quality Control Cost|0.50|1.50|-|-|-|1.50|
+|Materials Cost|0.75|-|-|1.02|1.01|1.05|
+||||||||
+
+---
+#### Cost of Engineering ($C_{ENG}$) ####
+
+$$𝐶_{𝐸𝑁𝐺} = 0.083 \cdot 𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}^{0.791} \cdot 𝑉_𝐻^{1.521} \cdot 𝑄^{0.183} \cdot 𝐹_{𝐶𝑒𝑟𝑡} \cdot 𝐹_{𝐶𝐹} \cdot 𝐹_{𝐶𝑜𝑚𝑝} \cdot 𝐹_{𝑃𝑟𝑒𝑠𝑠} \cdot 𝐹_{𝐻𝑦𝐸} \cdot 𝑅_{𝐸𝑁𝐺} \cdot 𝐶𝑃𝐼$$
+$𝐶_{𝐸𝑁𝐺}$ : Cost of Engineering
+
+$𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}$ : structural weight [lbs]
+
+$𝑉_𝐻$ : maximum level airspeed [KTAS]
+
+$𝑄$: number of aircraft to be produced over a 5-year period
+
+$𝐹_{𝐶𝑒𝑟𝑡}$: Factor for LSA certification
+
+$𝐹_{𝐶𝐹}$: FFactor for complex flap system
+
+$𝐹_{𝑃𝑟𝑒𝑠𝑠}$: Factor for pressurized cabin
+
+$𝐹_{𝐻𝑦𝐸}$: Factor for hybrid-electric propulsion
+
+$𝑅_{𝐸𝑁𝐺}$: rate of engineering labor in US$ per hour (92$/h is recommended)
+
+$𝐶𝑃𝐼$: consumer price index for consideration of inflation since 2012
+
+---
+#### Cost of Tooling ($C_{TOOL}$) ####
+$$C_{𝑇𝑂𝑂𝐿} = 2.1036 \cdot 𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}^{0.764} \cdot 𝑉_𝐻^{0.899} \cdot 𝑄^{0.178} \cdot 𝑄_𝑀^{0.066} \cdot 𝐹_{𝑇𝑎𝑝𝑒𝑟} \cdot 𝐹_{𝐶𝐹} \cdot 𝐹_{𝐶𝑜𝑚𝑝} \cdot 𝐹_{𝑃𝑟𝑒𝑠𝑠} \cdot 𝐹_{𝐻𝑦𝐸} \cdot 𝑅_{𝑇𝑂𝑂𝐿} \cdot 𝐶𝑃𝐼$$
+$C_{𝑇𝑂𝑂𝐿}$= Cost of Tooling
+
+$𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}$: structural weight [lbs]
+
+$𝑉_𝐻$: maximum level airspeed [KTAS]
+
+$𝑄$: number of aircraft to be produced over a 5-year period
+
+$𝑄_𝑀$: number of aircraft produced in one month
+
+$𝐹_{𝑇𝑎𝑝𝑒𝑟}$: Factor for untapered wings
+
+$𝐹_{𝐶𝐹}$: Factor for complex flap system
+ 
+$𝐹_{𝐶𝑜𝑚𝑝}$: Factor for 100% composites
+
+$𝐹_{𝑃𝑟𝑒𝑠𝑠}$: Factor for pressurized cabin
+
+$𝐹_{𝐻𝑦𝐸}$: Factor for hybrid-electric propulsion
+
+$𝑅_{𝑇𝑂𝑂𝐿}$: rate of tooling labor in US$ per hour (61$/h is recommended)
+
+$𝐶𝑃𝐼$: consumer price index for consideration of inflation since 2012
+
+
+---
+
+#### Cost of Manufacturing ($C_{MFG}$) ####
+$$𝐶_{𝑀𝐹𝐺} = 20.2588 \cdot 𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}^{0.74} \cdot 𝑉_𝐻^{0.543} \cdot 𝑄^{0.524} \cdot 𝐹_{𝐶𝑒𝑟𝑡} \cdot 𝐹_{𝐶𝐹} \cdot 𝐹_{𝐶𝑜𝑚𝑝} \cdot 𝐹_{𝐻𝑦𝐸} \cdot 𝑅_{𝑀𝐹𝐺} \cdot 𝐶𝑃𝐼$$
+
+$𝐶_{𝑀𝐹𝐺}$: Cost of Manufacturing
+
+$𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}$: structural weight [lbs]
+
+$𝑉_𝐻$: maximum level airspeed [KTAS]
+
+$𝑄$: number of aircraft to be produced over a 5-year period
+
+$𝐹_{𝐶𝑒𝑟𝑡}$: Factor for LSA certification
+
+$𝐹_{𝐶𝐹}$: Factor for complex flap system
+
+$𝐹_{𝐶𝑜𝑚𝑝}$: Factor for 100% composites
+
+$𝐹_{𝐻𝑦𝐸}$: Factor for hybrid-electric propulsion
+
+$𝑅_{𝑀𝐹𝐺} $: rate of manufacturing labor in US$ per hour (53$/h is recommended)
+
+$𝐶𝑃𝐼$: consumer price index for consideration of inflation since 2012
+
+---
+#### Cost of Development Support ($C_{DEV}$) ####
+
+$$𝐶_{𝐷𝐸𝑉} = 0.06458 \cdot 𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}^{0.873} \cdot 𝑉_𝐻^{1.89} \cdot 𝑄_{𝑃𝑟𝑜𝑡𝑜}^{0.346} \cdot 𝐶𝑃𝐼 \cdot 𝐹_{𝐶𝑒𝑟𝑡} \cdot 𝐹_{𝐶𝐹} \cdot 𝐹_{𝐶𝑜𝑚𝑝} \cdot 𝐹_{𝑃𝑟𝑒𝑠𝑠} \cdot 𝐹_{𝐻𝑦𝐸}$$
+
+$𝐶_{𝐷𝐸𝑉}$: Cost of Development Support
+
+$𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}$: structural weight [lbs]
+
+$𝑉_𝐻$: maximum level airspeed [KTAS]
+
+
+$𝑄_{𝑃𝑟𝑜𝑡𝑜}$: number of prototype aircraft to be produced
+
+$𝐶𝑃𝐼$: consumer price index for consideration of inflation since 2012
+
+$𝐹_{𝐶𝑒𝑟𝑡}$: Factor for LSA certification
+
+$𝐹_{𝐶𝐹}$: Factor for complex flap system
+
+$𝐹_{𝐶𝑜𝑚𝑝}$: Factor for 100% composites
+
+$𝐹_{𝑃𝑟𝑒𝑠𝑠}$: Factor for pressurized cabin
+
+$𝐹_{𝐻𝑦𝐸}$: Factor for hybrid-electric propulsion
+
+---
+
+#### Cost of Flight Test Operations ($C_{FT}) ####
+
+$$𝐶_{𝐹𝑇} = 0.009646 \cdot 𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}^{1.16} \cdot 𝑉_𝐻^{1.3718} \cdot 𝑄_{𝑃𝑟𝑜𝑡𝑜}^{1.281} \cdot 𝐶𝑃𝐼 \cdot 𝐹_{𝐶𝑒𝑟𝑡} \cdot 𝐹_{𝐻𝑦𝐸}$$
+
+$𝐶_{𝐹𝑇}$: Cost of Flight Test Operations
+
+$𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}$: structural weight [lbs]
+
+$𝑉_𝐻$: maximum level airspeed [KTAS]
+
+$𝑄_{𝑃𝑟𝑜𝑡𝑜}$: number of prototype aircraft to be produced
+
+$𝐶𝑃𝐼$: consumer price index for consideration of inflation since 2012
+
+$𝐹_{𝐶𝑒𝑟𝑡}$: Factor for LSA certification
+
+$𝐹_{𝐻𝑦𝐸}$: Factor for hybrid-electric propulsion
+
+---
+
+#### Cost of Quality Control ($C_{QC}$) ####
+
+$$𝐶_{𝑄𝐶} = 0.13 \cdot 𝐶_{𝑀𝐹𝐺} \cdot 𝐹_{𝐶𝐸𝑅𝑇} \cdot 𝐹_{𝐶𝑂𝑀𝑃} \cdot 𝐹_{𝐻𝑦𝐸}$$
+
+$𝐶_{𝑄𝐶}$: Cost of Quality Control
+
+$𝐶_{𝑀𝐹𝐺}$: Cost of Manufacturing
+
+$𝐹_{𝐶𝐸𝑅𝑇}$: Factor for LSA certification
+
+$𝐹_{𝐶𝑂𝑀𝑃}$: Factor for 100% composites
+
+$𝐹_{𝐻𝑦𝐸}$: Factor for hybrid-electric propulsion
+
+---
+#### Cost of Materials ($C_{MAT}$) ####
+
+$$𝐶_{𝑀𝐴𝑇} = 24.896 \cdot 𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}^{0.689} \cdot 𝑉_𝐻^{0.624} \cdot 𝑄^{0.792} \cdot 𝐶𝑃𝐼 \cdot 𝐹_{𝐶𝑒𝑟𝑡} \cdot 𝐹_{𝐶𝐹} \cdot 𝐹_{𝑃𝑟𝑒𝑠𝑠} \cdot 𝐹_{𝐻𝑦𝐸}$$
+
+$𝐶_{𝑀𝐴𝑇}$: Cost of Materials
+
+$𝑊_{𝐴𝑖𝑟𝑓𝑟𝑎𝑚𝑒}$: structural weight [lbs]
+
+$𝑉_𝐻$: maximum level airspeed [KTAS]
+
+$𝑄$: number of aircraft to be produced over a 5-year period
+
+$𝐶𝑃𝐼$: consumer price index for consideration of inflation since 2012
+
+$𝐹_{𝐶𝑒𝑟𝑡}$: Factor for LSA certification
+
+$𝐹_{𝐶𝐹}$: Factor for complex flap system
+
+$𝐹_{𝑃𝑟𝑒𝑠𝑠}$: Factor for pressurized cabin
+
+$𝐹_{𝐻𝑦𝐸}$: Factor for hybrid-electric propulsion
+
+---
+#### Cost of the propulsion system ####
+DAPCA does not account for electric propulsion systems, avionics or other systems. The cost for these must be added to the cost of the airframe.
+
+---
+
+#### Quantity Discount Factor (QDF) ####
+
+$$𝑄𝐷𝐹 = (𝐹_{𝐸𝑋𝑃})^{1.4427 \cdot \ln(𝑄)}$$
+
+$𝑄𝐷𝐹$ : Quantity Discount Factor
+
+$𝐹_{𝐸𝑋𝑃}$: factor of the workers’ experience effectiveness / quantity discount (0.95 is recommended)
+
+$𝑄$: number of aircraft to be produced over a 5-year period
+
+
+---
+
+#### Insurance / Product Liability Cost ####
+
+values of 15–20% of the total cost
+#### Profit #### 
+10% of the total cost to produce (including insurance cost) seem reasonable.
+
+---
+
+### Single Source Aircraft
+- This model's reference is "Raymer, Aircraft Design."
+
+#### Engineering hours
+$$𝐻_𝐸=4.86 \cdot 𝑊_e^{0.777} \cdot 𝑉_{𝑚𝑎𝑥}^{0.894} \cdot Q^{0.163} \;\ \{fps\} $$
+$$𝐻_𝐸=4.86\cdot 𝑊_e^{0.777} \cdot 𝑉_{𝑚𝑎𝑥}^{0.894} \cdot Q^{0.163} \;\ \{mks\} $$
+
+$𝐻_𝐸$: Engineering hours
+
+$𝑊_e$: empty weight [(lb) or {kg}]
+
+$𝑉_{𝑚𝑎𝑥}$: maximum velocity [(kt) or{km/h}]
+
+$Q$: lesser of production quantity or number to be produced in five years
+
+---
+#### Tooling Hours
+$$𝐻_𝑇=5.99 \cdot 𝑊_e^{0.777} \cdot 𝑉_{𝑚𝑎𝑥}^{0.696} \cdot Q^{0.263} \;\ \{fps\}$$
+$$𝐻_𝑇=7.22 \cdot 𝑊_e^{0.777} \cdot 𝑉_{𝑚𝑎𝑥}^{0.696} \cdot Q^{0.263} \;\ \{mks\}$$
+
+
+$𝐻_𝑇$ : Tooling Hours
+
+$𝑊_e$: empty weight [(lb) or {kg}]
+
+$𝑉_{𝑚𝑎𝑥}$: maximum velocity [(kt) or{km/h}]
+
+$Q$: lesser of production quantity or number to be produced in five years
+
+--
+
+#### Manufacturing Hours ####
+$$𝐻_𝑀=7.37 \cdot 𝑊_e^{0.82} \cdot 𝑉_{𝑚𝑎𝑥}^{0.484} \cdot Q^{0.641} \;\ \{fps\}$$
+$$𝐻_𝑀=10.5 \cdot 𝑊_e^{0.82} \cdot 𝑉_{𝑚𝑎𝑥}^{0.484} \cdot Q^{0.641} \;\ \{mks\}$$
+
+$𝐻_𝑀$: Manufacturing Hours
+
+$𝑊_e$: empty weight [(lb) or {kg}]
+
+$𝑉_{𝑚𝑎𝑥}$: maximum velocity [(kt) or{km/h}]
+
+$Q$: lesser of production quantity or number to be produced in five years
+
+---
+
+
+
+#### Quality Control Hours ####
+$$𝐻_𝑄=0.076 \cdot 𝐻_𝑀 \;\ {if \;\ cargo  \;\ airplane} $$
+$$𝐻_𝑄=0.076\cdot 𝐻_𝑀  \;\ {otherwise} $$
+
+$𝐻_𝑄$: Quality Control Hours
+
+$𝐻_𝑀$: Manufacturing Hours
+
+---
+
+#### Development Support Cost ####
+$$𝐶_𝐷=91.3\cdot 𝑊_e^{0.630} \cdot 𝑉_{𝑚𝑎𝑥}^{1.3} \;\ \{fps\}$$
+$$𝐶_𝐷=67.4\cdot 𝑊_e^{0.630} \cdot 𝑉_{𝑚𝑎𝑥}^{1.3} \;\ \{mks\}$$
+
+$𝐶_𝐷$: Development Support Cost
+
+$𝑊_e$: empty weight [(lb) or {kg}]
+
+$𝑉_{𝑚𝑎𝑥}$: maximum velocity [(kt) or{km/h}]
+
+---
+
+#### Flight Test Cost ####
+$$𝐶_𝐹=2498 \cdot 𝑊_e^{0.325} \cdot 𝑉_{𝑚𝑎𝑥}^{0.822} \cdot FTA^{1.21} \;\ \{fps\}$$
+$$𝐶_𝐹=1947 \cdot 𝑊_e^{0.325} \cdot 𝑉_{𝑚𝑎𝑥}^{0.822} \cdot FTA^{1.21} \;\ \{mks\}$$
+
+$𝐶_𝐹$: Flight Test Cost
+
+$𝑊_e$: empty weight [(lb) or {kg}]
+
+$𝑉_{𝑚𝑎𝑥}$: maximum velocity [(kt) or{km/h}]
+
+$FTA$: umber of flight-test aircraft (typically 2 -6)
+
+---
+
+
+---
+#### RDT&E ####
+ $$H_ER_E +H_TR_T+ H_MR_M + H_QR_Q +C_D+C_F$$
+
+$H_E$ : Engineering hours
+
+$H_T$ : Tooling Hours
+
+$H_M$ : Manufacturing Hours
+
+$H_Q$: Quality Control Hours
+
+$C_D$ : Development Support Cost
+
+$C_F$ : Flight Test Cost
+
+$C_M$ : Manufacturing Materials Cost
+
+$C_{eng}$ : Engine production cost
+
+$N_{eng}$ : total production quantity times number of engines per aircraft
+
+$C_{avionics}$ :
+avionics costs must be estimated from data on similar aircraft or from vendors' quotations. Avionics costs range from roughly 5 - 25% of flyaway cost depending upon sophistication or can be approximated as $4000 -$8000 per pound {$9000 -$18,000 per kg} in 2012 dollars.
+
+$R_E, R_T, R_M, R_Q$:
+These hourly rates are called "wrap rates" because they include the direct salaries paid to employees as well as the employee benefits, overhead, and administrative costs. 
+
+---
+#### Average wrap rates (adjusted to 2012) ####
+
+||||||||
+|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
+|Engineering||$R_E$ = $115|
+|Tooling Cost||$R_T$ = $118|
+|Quality Control Cost||$R_Q$ = $108|
+|Materials Cost||$R_M$ =$98 |
+||||||||
+---
+
+## Recurring Cost
+Recurring Cost is from unit aircraft production.
+
+---
+
+### Airframe Components Cost 1 [Modified DAPCA IV]
+
+$$𝐶_𝑀=22.1\cdot 𝑊_e^{0.921} \cdot 𝑉_{𝑚𝑎𝑥}^{0.621}\cdot Q^{0.799} \;\ \{fps\}$$
+$$𝐶_𝑀=31.2\cdot 𝑊_e^{0.921} \cdot 𝑉_{𝑚𝑎𝑥}^{0.621} \cdot Q^{0.799} \;\ \{mks\}$$
+
+$𝐶_𝑀$: Manufacturing Materials Cost
+
+$𝑊_e$: empty weight [(lb) or {kg}]
+
+$𝑉_{𝑚𝑎𝑥}$: maximum velocity [(kt) or{km/h}]
+
+$Q$: lesser of production quantity or number to be produced in five years
+
+---
+### Airframe Components Cost 2 [Beltramo]
+
+---
+
+#### Wing
+
+$C_{wing}=1730\cdot W_{wing}^{0.766}\cdot Q^{-0.218}$
+
+Input Parameter
+
+$W_{wing}$: Wing Weight 
+
+Q: Quantitiy of Aircraft
+
+Output Parameter
+
+$C_{wing}$:  Wing Cost 
+
+---
+
+#### Tail ####
+$$C_{tail}=1820⋅W_w^{0.766}⋅Q^{-0.218}$$
+
+$C_{tail}$: tail cost
+
+$W_w$: Wing Weight
+
+$Q$: Quantity of Aircraft
+
+---
+#### Fuselage ####
+$$C_f=2060⋅W_f^{0.766}⋅Q^{-0.218}$$
+
+$C_f$: fuselage cost
+
+$W_f$: fuselage weight
+
+$Q$: Quantity of Aircraft
+
+---
+
+#### Airframe Unconventional Part
+
+#### Canard ####
+$$C_{canard}=1730⋅W_{canard}^{0.766}⋅Q^{-0.218}$$
+
+$C_{canard}$: canard cost
+
+$W_{canard}$: canard weight
+
+$Q$: Quantity of Aircraft
+
+---
+#### Connector ####
+$$C_{cn}=1820⋅W_{cn}^{0.766}⋅Q^{-0.218}$$
+
+$C_{cn}$: connector cost
+
+$W_{cn}$: connector weight
+
+$Q$: Quantity of Aircraft
+
+---
+#### Box wing ####
+$$C_{boxwing}=C_(w,front)+C_{w,rear}+2⋅C_{cn}$$
+
+$C_{boxwing}$: box wing cost
+
+$C_(w,front)$: front wing cost
+
+$C_{w,rear}$: rear wing cost
+
+$C_{cn}$: connector cost
+
+$$C_{w,front/rear}=1730⋅W_{w,front/rear}^{0.766⋅}Q^{-0.218}$$
+
+$C_{w,front/rear}$: front/rear wing cost
+
+$W_{w,front/rear}$: front/rear wing weight
+
+$Q$: Quantity of Aircraft
+
+---
+#### Blended wing ####
+$$C_{w,bwb}=1730⋅W_{w,bwb}^{0.766}⋅Q^{-0.218}$$
+
+$C_{w,bwb}$: blended wing cost
+
+$W_{w,bwb}$: blended wing weight
+
+$Q$: Quantity of Aircraft
+
+---
+#### Oval fuselage ####
+$$C_{f,oval}=2060⋅W_{f,oval}^{0.766}⋅Q^{-0.218}$$
+
+$C_{f,oval}$: Oval fuselage cost
+
+$W_{f,oval}$: Oval fuselage weight
+
+$Q$: Quantity of Aircraft
+
+---
+
+#### Electric Motor Cost ####
+
+$$𝐶_{𝐸𝑀}=174⋅𝑁_{Motor} ⋅𝑃_{𝐸𝑀}⋅𝐶𝑃𝐼$$
+$N_{Motor}$ = Number of motor
+
+$𝑃_{𝐸𝑀}$ = rated power of electric motor [hp]
+
+$𝐶𝑃𝐼$= consumer price index for consideration of inflation since 2012
+
+---
+
+#### Power Management System Cost #### 
+
+$$C_{PMS}=150⋅P_{EM,tot}⋅CPI$$
+
+$C_{PMS}$: Power Management System Cost
+
+$P_{EM,tot}$: = rated power of total electric Motor [hp]
+
+$𝐶𝑃𝐼$= consumer price index for consideration of inflation since 2012
+
+---
+
+#### Battery Cost #### 
+$$C_{BAT}=200 \cdot E_{BAT}⋅CPI$$
+
+$C_{BAT}$: Battery Cost 
+
+$E_{BAT}$: Battery capacity
+
+Unit price : 200$/kWh
+
+$𝐶𝑃𝐼$= consumer price index for consideration of inflation since 2012
+
+---
+
+#### Propeller Cost
+
+$$𝐶_{CSProp} =210⋅𝑁_{prop} ⋅𝐶𝑃𝐼⋅𝐷_𝑝^2⋅(𝑃_{𝑆𝐻𝑃}/𝐷_𝑝 )^{0.12}$$
+
+$𝐶_{CSProp}$ : Propeller Cost
+
+$𝑁_{prop}$ : number of propeller
+
+$𝐶𝑃𝐼$= consumer price index for consideration of inflation since 2012
+
+$𝐷_𝑝$ : diameter of the propeller
+
+$𝑃_{𝑆𝐻𝑃}$: propeller shaft horse power
+
+---
+
+#### Landing Gear
+
+If the aircraft is equipped with a fixed landing gear, $7500 can be subtracted from the cost.
+
+---
+
+# Operating Cost
+Operating Cost = Direct operating cost + Indirect operating cost
+
+## Direct Operating Cost
+Direct Operating Cost = Flight + Maintenance + Depreciation + Airport Fee(Nav,airport,tax) + Financing
+
+---
+### Block Time and Flight Cycles model
+This model is came from UNIFER 19
+Considering Taxing Time
+#### Block time
+$$T_{block}=T_{flight}+0.33$$
+$T_{block}$ : Block Time
+
+$T_{flight}$ : Flight time
+#### Flight cycles per year
+
+$$FC = 3750/(T_{block}+0.5)$$
+$FC$: Flight cycles per year
+
+$T_{block}$ : Block Time
+
+#### Utilisation Rate
+$U_{ann}=FC\cdot T_{block} $
+
+$U_{ann}$ : Utilisation rate
+
+$FC$: Flight cycles per year
+
+$T_{block}$ : Block time
+
+#### Cost per available seat kilometer(CASK)
+$$CASK=DOC_{total}/N_{seats}\cdot D_{km}$$
+---
+
+### Flight Cost
+
+
+#### Flight Cost of Pilot 1
+Cees Bil, “Cost Estimation Methods for Hybrid-Electric General Aviation Aircraft”
+$$C_{pilot}=R_{pilot}\cdot N_{pilot}\cdot 1.5\cdot t_{flight}$$
+
+$R_{pilot}$ : Rate of Pilot
+
+$N_{pilot}$ : Number of Pilot
+
+$t_{flight}$ :  Flight Time(hour)
+
+$C_{pilot}$ : Cost of Pilot
+
+#### Flight Cost of Pilot 2
+UNIFER 19 Reference is not used becuase we don't use any cabin crew
+
+
+#### Flight Cost of Battery
+$$C_{batt}=\tau_{batt}\cdot E_{flight}/(\eta_{charge}\cdot \eta_{charger})$$
+
+Input Parameter
+
+$\tau_{batt}$ : kWh per dollar for Battery Charge
+
+$E_{flight}$ : Consumed Battery Energy throughout a flight
+
+$\eta_{charge}$ : Bettery's Charging Efficiency
+
+$\eta_{charger}$ : Charger Efficiency
+
+#### Flight Cost of Hydrogen Fuel
+- Will be update at 3 Quarter
+
+$$C_{fuel}=\tau_{fuel}\cdot m_{fuel}$$
+
+$\tau_{fuel}\$: kg per dollar for Hydrogen Fuel Charge
+
+$m_{fuel}$: Consumed Hydrogen Fuel Mass throughout a flight
+
+---
+
+### Maintenance Cost
+
+#### Total Maintenance Cost Reference 1
+Cees Bil, “Cost Estimation Methods for Hybrid-Electric General Aviation Aircraft”
+
+Including Every Maintenance Cost
+
+$$C_{mat}=R_{AP}\cdot F_{mat,hour}\cdot t_{flight}$$
+
+Input Parameter
+
+$R_{AP}$ : Rate of the certified mechanic(typically 60 dollar per hours)
+
+$F_{mat,hour}$: Maintenance hours
+
+$t_{flight}$: flight time
+
+
+#### Maintenance of Airframe
+S.O.L. Zijp, “Development of a Life Cycle Cost Model for Conventional and Unconventional Aircraft”
+
+$$MH_{af,bl}=3+0.067\cdot W_{af}/1000$$
+
+$$C_{lab,af}=1.03\cdot MH_{af,bl}\cdot R_{mt}/V_{bl}$$
+
+$$C_{mat,af,bl}=30\cdot ATF+0.79\cdot 10^-5\cdot P_{af}$$
+
+$$C_{mat,af}=1.03\cdot C_{mat,af,bl}/V_{bl}$$
+
+
+$MH_{af,bl}$ : Labor hours required for the airframe
+
+$W_{af}$ : Airframe weight
+
+$C_{lab,af}$ : Labor cost for airframe maintenance
+
+$R_{mt}$ : Labor rate for maintenance
+
+$V_{bl}$ : Speed in block hours
+
+$C_{mat,af,bl}$ : Cost of meterials for airframe maintenance per block hour
+
+$ATF$: Aircraft type factor
+
+$P_{af}$:Airframe price
+
+$C_{mat,af}$: Cost of materials for airframe maintenance per nautical mile
+
+$C_{mat,af,bl}$: Cost of meterials for airframe maintenance per block hour
+
+---
+### Depreciation Cost
+
+
+$$C_{depreciation}=C_{depr,aircraft}+C_{depr,battery}+C_{depr,propeller}$$
+
+#### Depreciation of Aircraft
+Cees Bil, “Cost Estimation Methods for Hybrid-Electric General Aviation Aircraft”
+
+$$C_{depr,aircraft}=\frac {P_{aircraft}}{n_{flights}}$$
+
+Input Parameter
+
+$C_{depr,aircraft}$ : Aircraft Depreciation Cost
+
+$P_{aircraft}$ : Aircraft List price
+
+$n_{flights}$ :  Total number of flights
+
+#### Depreciation of Battery
+박민준,"전기추진수직이착륙기의 초기사이징에 대한 배터리 민감도 분석"
+$$C_{dep,batt}=C_{spec,batt}\cdot (E_{block hour}\cdot T_{flight,year})/(N_{cycle,batt}\cdot (1-0.5(1-SOH))\cdot N_{charge,per,flight,hour})$$
+
+Input Parameter
+
+$C_{dep,batt}$ : Battery depreciation cost
+
+$C_{spec,batt}$ : Specific Battery cost ($/kWh)
+
+$E_{block hour}$ : Total battery energy from block hour(entire mission)
+
+$T_{flight,year}$ : Annual Flight hour
+
+$N_{cycle,batt}$ : Battery life cycle
+
+$SOH$ : State of Health
+
+$N_{charge,per,flight,hour}$ : the number of charge time per flight hour
+
+#### Depreciation of Propeller
+S.O.L. Zijp, “Development of a Life Cycle Cost Model for Conventional and Unconventional Aircraft”
+$$C_{depr,prop}=F_{depr,prop}\cdot \frac {P_{prop}\cdot N_{prop}}{DP_{prop}\cdot U_{ann}\cdot V_{block}}$$
+
+Input Parameter
+
+$C_{depr,prop}$ : Depreciation cost of propeller
+
+$F_{depr,prop}$ : Depreciation Factor of propeller
+
+$P_{prop}$ : Price of propeller
+
+$N_{prop}$ : Number of propeller
+
+$DP_{prop}$ : Depreciation period of propeller
+
+$U_{ann}$ : Annual utilization Rate
+
+$V_{block}$
+---
+### Airport Fee
+#### Navigation fees
+This model is from UNIFER 19 "Final concurrent design report"
+
+$$C_{nav}=K_{nav}\cdot (D_{km}/100)(MTOW/50)^{0.5}$$
+
+$K_{nav}$ : A rate that changes for every country
+
+Western Europe = 59euro
+
+Eastern Europe = 38euro
+
+Northern Europe = 42
+
+EUROCONTROL countries = 45euro
+
+#### Terminal fees 1
+This model is from UNIFIER 19 "Final concurrent design report"
+$$C_{terminal}=K_{tnc}\cdot (MTOW/50)^{0.7}$$
+
+$C_{terminal}$ : Terminal fees change considerably from country to country and, in some countries, they also depend on the airport. It is important to remark that these charges apply only for bigger airports, with terminal ATC. In UFIER19, only the microfeeder market case can be impacted by these fees.(UNIFIER 19)
+
+$K_{tnc}$ : Average 170 euro(2020.Jan)
+
+#### Terminal fees 2
+Cees Bil, “Cost Estimation Methods for Hybrid-Electric General Aviation Aircraft”
+
+$$C_{Airport}=0.01\cdot (MTOW - 1100lb)\cdot F_{noise}\cdot N_{Landing}$$
+
+$C_{Airport}$ : The airport’s landing charges are estimated, using the equation, according to (Kreimeier, 2018). If an aircraft is expected to be noisier than category A, a surcharge factor of  $F_{Noise} = 1.45$ should be applied. Otherwise, this factor should be $F_{Noise} = 1.0$
+
+#### Registry Tax
+S.O.L. Zijp, “Development of a Life Cycle Cost Model for Conventional and Unconventional Aircraft”
+
+$$DOC_{init} = C_{flight}+C_{maintenance}+C_{depreciation}+C_{airport_or_terminal}+C_{navigation}$$
+$$F_{registry}=0.001+MTOW\cdot 10^{-8}$$
+$$C_{resgistry}=F_{registry}\cdot DOC$$
+
+$DOC_{init}$ : Initial DOC except registry and finance cost
+
+$F_{registry}$ : Registry tax factor
+
+### Financing
+S.O.L. Zijp, “Development of a Life Cycle Cost Model for Conventional and Unconventional Aircraft”
+
+$$C_{finance}=F_{registry}\cdot DOC_{init}$$
+
+---
+
+## In Direct Operating Cost
+
+S.O.L. Zijp, “Development of a Life Cycle Cost Model for Conventional and Unconventional Aircraft”
+
+#### <center> Table 2. Cost factors for IOC components </center> ####
+
+|Cost Factor|Domestic|International|
+|:------:|:------:|:------:|
+|$K_{1}$|0.52|0.56|
+|$K_{2}$|1.86|1.64|
+|$K_{3}$|23.83|67.72|
+|$K_{4}$|29.33|37.00|
+|$K_{5}$|0.96|0.63|
+|$K_{6}$|6.56|15.84|
+|$K_{7}$|98.2|150.69|
+|$K_{8}$|0.0065|0.0088|
+|$K_{9}$|0.0082|0.0099|
+|$K_{10}$|0.048|0.053|
+||||||||
+
+### Local Facilities
+
+$$C_{local}=K_{2}\cdot \frac{MTOW}{1000}\cdot \frac {1+\bar{f}_{rev}}{R_{bl}}$$
+
+Input parameter
+
+MTOW : Maximum Take off weight
+
+$\bar{f}_{rev}$ : Revenue inflation rate
+
+$R_{bl}$ : Block Range
+
+### Passenger Handling
+
+$$C_{h,pax}=K_{6}\cdot \frac {LF_{pax}\cdot N_{seat}\cdot (1+\bar{f}_{rev})}{R_{bl}}$$
+
+Input parameter 
+
+$LF_{pax}$: Passenger load factor
+
+$N_{seat}$: Number of seats
+
+$\bar{f}_{rev}$: Revenue inflation rate
+
+$R_{bl}$: Block Range
+
+### Cargo Handling
+
+$$C_{h,pax}=K_{7}\cdot W_{cargo}\cdot (1+\bar{f}_{rev})$$
+
+Input parameter
+
+$W_{cargo}$: Cargo weight
+
+$\bar{f}_{rev}$: Revenue inflation rate
+
+### General and administrative
+
+$$C_{gen}=K_{10}\cdot (IDOC_{sub}+(DOC-C_{depr}))\cdot \frac{(1+\bar{f}_{rev})}{R_{bl}}$$
+
+Input parameter
+
+$IDOC_{sub}$ : Indirect operating cost 
+
+$DOC$ : Direct operating cost
+
+$C_{depr}$ : Depreciation Cost
+
+$\bar{f}_{rev}$: Revenue inflation rate
+
+$R_{bl}$: Block Range
+
+# Figure of Merit Calculation
+We choose aircrat list price and recurring month as Figure of Merit
+
+## Aircraft List Price
+
+$$P_{List}=P_{Unit}\cdot (1+F_{earn}+F_{discount})$$
+
+$$P_{Unit}=\frac {C_{Non-recurring}}{Q_{quantity}}$$
+
+$P_{Unit}$ : Aircraft Unit Price
+
+$P_{List}$: Aircraft List Price
+
+$F_{earn}$ : Earning rate
+
+$F_{discount}$: Discount rate
+
+$Q_{quantity}$: Production target quantity
+
+## Aircraft Recurring Month
+
+$$P_{month,net}\cdot N_{month} - C_{Non-recurring}>0, N_{month}$$
+
+$$P_{month,net} = P_{month} - C_{O.C}$$
+
+$$P_{total} = P_{per flight}\cdot n_{flights}$$
+
+$$P_{per flight} = p_{ticket}\cdot m_{payload}\cdot LF_{pax}$$
+
+$N_{month}$ : Operating month, recurring month when $P_{month}\cdot N_{month} - C_{Non-recurring}>0$
+
+
+$LF_{pax}$: Passenger load factor
+
+$C_{Non-recurring}$ : Non recurring cost
+
+$P_{month,net}$: Net Monthly profit
+
+$P_{month}$: Monthly profit
+
+$C_{O.C}$:Operating cost per month
+
+$p_{ticket}$ : ticket price per kg
+
+$m_{payload}$ : payload mass
+
+$LF_{pax}$:Passenger load factor

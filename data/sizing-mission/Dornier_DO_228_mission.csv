@@ -1,0 +1,7 @@
+﻿segment,start-alt,end-alt,speed,range,duration
+INIT-CONDITIONS,0,,0,,
+TAKEOFF,0,0,,600,
+CLIMB,0,3000,6.27,,
+CRUISE,3000,3000,95,317000,
+DESCENT,3000,0,6.27,,
+LANDING,0,0,,,

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>eCTOL Sizing Theory Manual &mdash; ADSP 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Command input file" href="command_input.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ADSP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command_input.html">Command input file</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">eCTOL Sizing Theory Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#general-overview">General Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#performance-requirements-calcualtion">Performance Requirements Calcualtion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#steady-level-flight-conditions">Steady Level Flight Conditions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#thrust-required-power-required-and-p-w-calculation">Thrust required, Power required and P/W calculation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maximum-endurance-speed">Maximum Endurance Speed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maximum-range-speed">Maximum Range Speed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maximum-speed">Maximum Speed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#climb-and-descent-conditions">Climb and Descent Conditions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Thrust required, Power required and P/W calculation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maximum-rate-of-climb-condition">Maximum Rate of Climb Condition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stall-speed-condtion">Stall Speed Condtion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#takeoff-condition">Takeoff Condition</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#total-mass-calculation">Total mass calculation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#energy-mass-calculaiton">Energy Mass Calculaiton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#propulsion-mass-calculation">Propulsion Mass Calculation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#motor-regression-model">Motor Regression Model</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#inverter-regression-model">Inverter Regression Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#propeller-model">Propeller Model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mission-energy-required-calcaultion">Mission Energy Required Calcaultion</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ADSP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>eCTOL Sizing Theory Manual</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/eCTOL Sizing Theory Manual.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="ectol-sizing-theory-manual">
+<h1>eCTOL Sizing Theory Manual<a class="headerlink" href="#ectol-sizing-theory-manual" title="Permalink to this headline"></a></h1>
+<p>This is the manual for electric conventional takeoff and landing sizing manual</p>
+<section id="general-overview">
+<h2>General Overview<a class="headerlink" href="#general-overview" title="Permalink to this headline"></a></h2>
+<p>Instead of tradional sizing process, which find the required P/W, T/W based on the requirements, we used optimization appraoch which finds the design requirements with the variables of P/W, W/S and Mass input values.
+An optimization formulaiton can be written as,</p>
+<div class="math notranslate nohighlight">
+\[\min_{P/W, W/S, MTOW_{in}} \ MTOW_{out}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\text{subject to}\notag \\\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[MTOW_{in} - MTOW_{out} \leq \epsilon\]</div>
+<div class="math notranslate nohighlight">
+\[V_{stall_{out}} \leq V_{stall_{req}}\]</div>
+<div class="math notranslate nohighlight">
+\[ROC_{max_{calc}} \geq ROC_{max_{req}}\]</div>
+<div class="math notranslate nohighlight">
+\[...\]</div>
+<div class="math notranslate nohighlight">
+\[...\]</div>
+<p>other constraints parameters that is defined by user requirements.</p>
+</section>
+<section id="performance-requirements-calcualtion">
+<h2>Performance Requirements Calcualtion<a class="headerlink" href="#performance-requirements-calcualtion" title="Permalink to this headline"></a></h2>
+<p>Performance requirements such as maximum climb rate, cruise speed can be calculated based on our design variables of P/W, W/S and MTOW_{in} values.</p>
+<section id="steady-level-flight-conditions">
+<h3>Steady Level Flight Conditions<a class="headerlink" href="#steady-level-flight-conditions" title="Permalink to this headline"></a></h3>
+<p>A cruise condition can be set for different conditions.</p>
+<div class="math notranslate nohighlight">
+\[ T = D \]</div>
+<div class="math notranslate nohighlight">
+\[ L = W \]</div>
+<section id="thrust-required-power-required-and-p-w-calculation">
+<h4>Thrust required, Power required and P/W calculation<a class="headerlink" href="#thrust-required-power-required-and-p-w-calculation" title="Permalink to this headline"></a></h4>
+<p>Thrust required, Power required, Lift required can be defined from cruise speed and wing loading conditions.</p>
+<div class="math notranslate nohighlight">
+\[C_{L_{req}} = 2 (W/S) \rho V_{cruise}^2\]</div>
+<div class="math notranslate nohighlight">
+\[C_D = CD_0 + k C_{L_{req}}^2\]</div>
+<div class="math notranslate nohighlight">
+\[T_{req} = D = 1/2 \rho V_{cruise}^2 \frac{1}{(W/S)} W_{in} C_D\]</div>
+<div class="math notranslate nohighlight">
+\[P_{req}/W_{in} = \frac{T_{req} V_{cruise}}{\eta_{prop}}\]</div>
+<div class="math notranslate nohighlight">
+\[P_{req} = (P/W) W_{in}\]</div>
+</section>
+<section id="maximum-endurance-speed">
+<h4>Maximum Endurance Speed<a class="headerlink" href="#maximum-endurance-speed" title="Permalink to this headline"></a></h4>
+<p>Find the speed for maximum endurance condition.
+$<span class="math notranslate nohighlight">\( V_{E_{max}} = \sqrt{(2/\rho) (W/S) \sqrt{\frac{k}{3 C_{D_{0}}}}}\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( V_{cruise}  =V_{E_{max}}\)</span>$</p>
+</section>
+<section id="maximum-range-speed">
+<h4>Maximum Range Speed<a class="headerlink" href="#maximum-range-speed" title="Permalink to this headline"></a></h4>
+<p>Find the speed for maximum range condition.\</p>
+<div class="math notranslate nohighlight">
+\[ V_{R_{max}} = \sqrt{(2/\rho) (W/S) \sqrt{\frac{k}{C_{D_{0}}}}}\]</div>
+<div class="math notranslate nohighlight">
+\[ V_{cruise}  =V_{R_{max}}\]</div>
+</section>
+<section id="maximum-speed">
+<h4>Maximum Speed<a class="headerlink" href="#maximum-speed" title="Permalink to this headline"></a></h4>
+<p>Find the airspeed for maximum speed condition. Maximum speed can be find as a funciton of P/W and W/S. Since the equaiton cannot solve manually, so we applied Newoton Raphson methods to find the maximum speed. <a class="footnote-reference brackets" href="#fn" id="id1">1</a></p>
+<div class="math notranslate nohighlight">
+\[\eta_{prop} (P/W) = 0.5 \rho V_{max}^3 1/(W/S) C_{D_{0}} + \frac{2k (W/S)}{\rho V_{max}} \]</div>
+<div class="math notranslate nohighlight">
+\[V_{cruise} = V_{max}\]</div>
+</section>
+</section>
+<section id="climb-and-descent-conditions">
+<h3>Climb and Descent Conditions<a class="headerlink" href="#climb-and-descent-conditions" title="Permalink to this headline"></a></h3>
+<p>A climb condition can be set for different conditions. <br />
+$<span class="math notranslate nohighlight">\( T = W \sin \theta + D \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( L = W \cos \theta \)</span>$</p>
+<section id="id2">
+<h4>Thrust required, Power required and P/W calculation<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h4>
+<p>Thrust required, Power required, Lift required can be defined from cruise speed and wing loading conditions.</p>
+<div class="math notranslate nohighlight">
+\[C_{L_{req}} = 2 (W/S) \rho V_{climb}^2 \cos \theta \]</div>
+<div class="math notranslate nohighlight">
+\[ C_D = CD_0 + k C_{L_{req}}^2\]</div>
+<div class="math notranslate nohighlight">
+\[ T_{req} = W \sin \theta + D \]</div>
+<div class="math notranslate nohighlight">
+\[ T_{req}  = W_{in} \sin \theta + 1/2 \rho V_{cruise}^2 \frac{1}{(W/S)} W_{in} C_D \]</div>
+<div class="math notranslate nohighlight">
+\[ P_{req}/W_{in} = \frac{T_{req} V_{cruise}}{\eta_{prop}} \]</div>
+<div class="math notranslate nohighlight">
+\[ P_{req} = (P/W) W_{in}\]</div>
+</section>
+<section id="maximum-rate-of-climb-condition">
+<h4>Maximum Rate of Climb Condition<a class="headerlink" href="#maximum-rate-of-climb-condition" title="Permalink to this headline"></a></h4>
+<p>A maximum rate of climb condition can be found at maximum lift to drag ratio and maximum excess power conditions. A maximum lift to drag ratio speed can be written as,</p>
+<div class="math notranslate nohighlight">
+\[V_{LD_{max}} = \sqrt{2/\rho (W/S) \sqrt{\frac{k}{3 C_{D_{0}}}}}\]</div>
+<div class="math notranslate nohighlight">
+\[LD_{max}    =  \frac{1}{4 C_{D_{0} k}}\]</div>
+<div class="math notranslate nohighlight">
+\[ROC_{max}   = \eta_{prop} (P/W) - V_{LD_{max}} \frac{1.1547}{LD_{max}}\]</div>
+<div class="math notranslate nohighlight">
+\[\theta      = \sin^{-1} (\frac{ROC_{max}}{V_{LD_{max}}})\]</div>
+<div class="math notranslate nohighlight">
+\[ V_{climb}  = V_{LD_{max}}\]</div>
+</section>
+<section id="stall-speed-condtion">
+<h4>Stall Speed Condtion<a class="headerlink" href="#stall-speed-condtion" title="Permalink to this headline"></a></h4>
+<p>A stall speed can be calculated as a function of wingloading</p>
+<div class="math notranslate nohighlight">
+\[ V_{stall} = \sqrt{\frac{2 (W/S)}{\rho C_{L_{max}}}}\]</div>
+</section>
+<section id="takeoff-condition">
+<h4>Takeoff Condition<a class="headerlink" href="#takeoff-condition" title="Permalink to this headline"></a></h4>
+<p>A takeoff condition is defined which is calculated based on lift off speed, P/W and W/S. A ground roll distance is calculated.</p>
+<div class="math notranslate nohighlight">
+\[V_{liftoff} = 1.2 V_{stall}\]</div>
+<div class="math notranslate nohighlight">
+\[V_{field} = \frac{V_{liftoff}}{\sqrt{2}}\]</div>
+<div class="math notranslate nohighlight">
+\[S_{g} = \frac{V_{liftoff}^2}{2 g (\eta_{prop}/V_{field}(P/W)+q \ 1/(W/S)(\mu C_{L_{TO}}-C_{D_{TO}}-\mu))}\]</div>
+</section>
+</section>
+</section>
+<section id="total-mass-calculation">
+<h2>Total mass calculation<a class="headerlink" href="#total-mass-calculation" title="Permalink to this headline"></a></h2>
+<p>In this calculaiton, we consisder for Energy mass calcualtion, Propulison mass calculaiton, Structural, Subsystems and Avionics mass.</p>
+<section id="energy-mass-calculaiton">
+<h3>Energy Mass Calculaiton<a class="headerlink" href="#energy-mass-calculaiton" title="Permalink to this headline"></a></h3>
+<p>Energy mass can be divided for hydrogen fuel cell and battery mass.
+In this version, we only consisder for battery mass. A battery mass can be estimated depending on specific energy density, energy required of our aircraft mission.</p>
+<div class="math notranslate nohighlight">
+\[ Energy_{battery} = \frac{Energy_{req}}{f_{usable}\eta_{battery}}\]</div>
+<div class="math notranslate nohighlight">
+\[ mass_{battery} = \frac{Energy_{battery}}{E_{spec}}\]</div>
+</section>
+<section id="propulsion-mass-calculation">
+<h3>Propulsion Mass Calculation<a class="headerlink" href="#propulsion-mass-calculation" title="Permalink to this headline"></a></h3>
+<p>Propulsion mass for motor, inverter are used as regression model from competitor data.</p>
+<section id="motor-regression-model">
+<h4>Motor Regression Model<a class="headerlink" href="#motor-regression-model" title="Permalink to this headline"></a></h4>
+<p>Motor mass is estimated based on maximum power required.</p>
+<div class="math notranslate nohighlight">
+\[ mass_{motor} = 0.208 P_{max_{kw}} + 2.23 \]</div>
+</section>
+</section>
+<section id="inverter-regression-model">
+<h3>Inverter Regression Model<a class="headerlink" href="#inverter-regression-model" title="Permalink to this headline"></a></h3>
+<p>Invertor mass is estimated based on maximum power required.</p>
+<div class="math notranslate nohighlight">
+\[ mass_{inverter} = 0.0553 P_{max_{kw}} + 1.721\]</div>
+</section>
+<section id="propeller-model">
+<h3>Propeller Model<a class="headerlink" href="#propeller-model" title="Permalink to this headline"></a></h3>
+<p>Propeller mass is estimated based on diameter of propeller.
+Propeller diameter is calculated. <a class="footnote-reference brackets" href="#fn" id="id3">1</a>
+$<span class="math notranslate nohighlight">\( mass_{prop} = 1.1 {(D_{prop} P_{max_{kw}}\sqrt{N_{b}})^{0.52}}\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[ D_{prop} = k_{p} P_{max_{kw}}^{0.25}\]</div>
+<p><span class="math notranslate nohighlight">\(k_{p}\)</span> is 0.56 for 2 blades propeller.<br />
+<span class="math notranslate nohighlight">\(k_{p}\)</span> is 0.52 for 3 blades propelelr.<br />
+<span class="math notranslate nohighlight">\(k_{p}\)</span> is 0.49 for propeller’s blades between 3 and 6.</p>
+</section>
+</section>
+<section id="mission-energy-required-calcaultion">
+<h2>Mission Energy Required Calcaultion<a class="headerlink" href="#mission-energy-required-calcaultion" title="Permalink to this headline"></a></h2>
+<p>Mission energy required is calculated depending on user mission profile and calcuated the power required of each mission segements and as well as mission energy.</p>
+<div class="math notranslate nohighlight">
+\[Energy_{misison} = \sum_{i=0}^{i=Seg} {P_{i} t_{i}}\]</div>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="fn"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id3">2</a>)</span></dt>
+<dd><p>AircraftPerformanceAnEngineeringApproach[pg-265]</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="command_input.html" class="btn btn-neutral float-left" title="Command input file" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, KADA.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
