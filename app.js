@@ -8,7 +8,7 @@ const spawn = require('child_process').spawn;
 
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded());
-server.use(express.static('ouput'))
+server.use(express.static('/ouput'))
 server.post("/calculate",async (req,res)=> {
     
     const filename = Date.now();
