@@ -197,9 +197,7 @@ altitude,0,,,
     return res.send("/output/"+filename+"/report.md");
     
 });
-server.use((req, res) => {
-  res.sendFile(__dirname + "/404.html");
-});
+
 
 server.listen(3000, (err) => {
   if (err) return console.log(err);
