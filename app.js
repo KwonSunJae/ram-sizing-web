@@ -101,15 +101,15 @@ altitude,${req.body.altitude3},,,
         if (exists) {
             // Content-type is very interesting part that guarantee that
             // Web browser will handle response in an appropriate manner.
-            response.writeHead(200, {
+            res.writeHead(200, {
                 "Content-Type": "application/octet-stream",
                 "Content-Disposition": "attachment; filename=" + fileName
             });
             fs.createReadStream(filePath).pipe(response);
             return;
         }
-        response.writeHead(400, { "Content-Type": "text/plain" });
-        response.end("ERROR File does not exist");
+        res.writeHead(400, { "Content-Type": "text/plain" });
+        res.end("ERROR File does not exist");
     });
     
 });
