@@ -10,7 +10,7 @@ server.use(cors({
 }));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded());
-server.use('/output',express.static('ouput'))
+server.use("/output",express.static('ouput'))
 server.post("/calculate",async (req,res)=> {
     
     const filename = Date.now();
