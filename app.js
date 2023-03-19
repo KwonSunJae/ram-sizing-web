@@ -81,7 +81,7 @@ altitude,${req.body.altitude_2},,,
         }
     });
     try {
-        const result = spawn('python', [path.join(path.join(__dirname,'tests'),'sizing_test_nominal_mission.py'),filename]);
+        const result = spawn('python3', [path.join(path.join(__dirname,'tests'),'sizing_test_nominal_mission.py'),filename]);
         result.stderr.on('data', function(data) {
             console.log(data.toString());
     
@@ -165,7 +165,7 @@ altitude,0,,,
         }
     });
     try {
-        const result = spawn('python', [path.join(path.join(__dirname,'tests'),'sizing_test_nominal_mission.py'),filename]);
+        const result = spawn('python3', [path.join(path.join(__dirname,'tests'),'sizing_test_nominal_mission.py'),filename]);
         result.stderr.on('data', function(data) {
             console.log(data.toString());
     
