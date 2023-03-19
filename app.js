@@ -53,9 +53,9 @@ passenger_number,${req.body.passenger_number},,,
 coef_ground_friction,${req.body.coef_ground_friction},,,
 height_obstacle,${req.body.height_obstacle},,,
 DESIGN VARIABLE,x0,lb,ub,
-mass_total_inp,${req.body.mass_total_inp_1},${req.body.mass_total_inp_2},${req.body.mass_total_inp_3},kg
-wing_loading,${req.body.wing_loading_1},${req.body.wing_loading_2},${req.body.wing_loading_3},N/m^2
-power_loading,${req.body.power_loading_1},${req.body.power_loading_2},${req.body.power_loading_3},W/N
+mass_total_inp,${req.body.mass_total_inp1},${req.body.mass_total_inp2},${req.body.mass_total_inp3},kg
+wing_loading,${req.body.wing_loading1},${req.body.wing_loading2},${req.body.wing_loading3},N/m^2
+power_loading,${req.body.power_loading1},${req.body.power_loading2},${req.body.power_loading3},W/N
 OBJECTIVE,,,,
 calc_total_mass,,,,
 mass_total_out,min,,,
@@ -69,11 +69,11 @@ altitude,0,,,
 CONSTRAINT,,,,
 calc_takeoff_dist,,,,
 distance_takeoff,leq,${req.body.distance_takeoff},m,
-altitude,${req.body.altitude_1},,,
+altitude,${req.body.altitude1},,,
 CONSTRAINT,,,,
 calc_rate_of_climb,,,,
 rate_of_climb,geq,${req.body.rate_of_climb},m/s,
-altitude,${req.body.altitude_2},,,
+altitude,${req.body.altitude2},,,
 `;
     
     const inputfile = path.join(__dirname,path.join('input',filename+''));
