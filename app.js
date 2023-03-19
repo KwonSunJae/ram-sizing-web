@@ -94,7 +94,7 @@ altitude,${req.body.altitude3},,,
         console.log(error);
     }
     await delay(3000);
-    const filePath = "/output/"+filename+"/report.md"; // or any file format
+    const filePath = path.join(__dirname,"output/"+filename+"/report.md"); // or any file format
 
     // Check if file specified by the filePath exists
     fs.exists(filePath, function (exists) {
