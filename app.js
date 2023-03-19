@@ -8,6 +8,8 @@ const spawn = require('child_process').spawn;
 server.use(cors({
     origin: ['*','http://127.0.0.1']
 }));
+
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded());
 server.use("/output",express.static(__dirname+'/ouput'));
@@ -91,8 +93,24 @@ altitude,${req.body.altitude3},,,
     } catch (error) {
         console.log(error);
     }
-    
-    return res.send("/output/"+filename+"/report.md");
+    await delay(3000);
+    const filePath = "/output/"+filename+"/report.md"; // or any file format
+
+    // Check if file specified by the filePath exists
+    fs.exists(filePath, function (exists) {
+        if (exists) {
+            // Content-type is very interesting part that guarantee that
+            // Web browser will handle response in an appropriate manner.
+            response.writeHead(200, {
+                "Content-Type": "application/octet-stream",
+                "Content-Disposition": "attachment; filename=" + fileName
+            });
+            fs.createReadStream(filePath).pipe(response);
+            return;
+        }
+        response.writeHead(400, { "Content-Type": "text/plain" });
+        response.end("ERROR File does not exist");
+    });
     
 });
 server.get("/test",async (req,res)=> {
