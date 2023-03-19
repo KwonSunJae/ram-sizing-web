@@ -105,7 +105,7 @@ altitude,${req.body.altitude3},,,
                 "Content-Type": "application/octet-stream",
                 "Content-Disposition": "attachment; filename=report.md" 
             });
-            fs.createReadStream(filePath).pipe(response);
+            fs.createReadStream(filePath).pipe(res);
             return;
         }
         res.writeHead(400, { "Content-Type": "text/plain" });
