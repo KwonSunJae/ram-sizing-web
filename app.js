@@ -75,7 +75,7 @@ calc_rate_of_climb,,,,
 rate_of_climb,geq,${req.body.rate_of_climb},m/s,
 altitude,${req.body.altitude3},,,
 `;
-    
+    console.log(content);
     const inputfile = path.join(__dirname,path.join('input',filename+''));
     fs.writeFile(inputfile+'.csv',content,error =>
         {if (error){
