@@ -1,11 +1,13 @@
 const express = require("express");
 const server = express();
 const bodyParser = require('body-parser');
-
+const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const spawn = require('child_process').spawn;
-
+app.use(cors({
+    origin: ['*']
+}));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded());
 server.use('/output',express.static('ouput'))
