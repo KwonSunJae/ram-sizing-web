@@ -6,7 +6,7 @@ const fs = require('fs');
 const path = require('path');
 const spawn = require('child_process').spawn;
 server.use(cors({
-    origin: ['*','http://127.0.0.1']
+    origin: ['*','http://127.0.0.1','http://117.16.137.239']
 }));
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));

@@ -11,7 +11,7 @@ import os
 from shutil import copyfile
 from datetime import datetime
 import numpy as np
-
+import sys
 
 
 class MarkdownDocument():
@@ -102,7 +102,7 @@ class MarkdownDocument():
         self.figCaptions.append(caption)
         fileName = 'Figure_%d.%s'%(self.figIdx, self.figFormat)
         self.figFileNames.append(fileName)
-        self.doc += '\n![%s](%s)\n\n'%(caption, fileName)
+        self.doc += '\n![%s](%s)\n\n'%(caption,"http://117.16.137.239:3000/output/"+sys.argv[1]+"/"+ fileName)
     
     def save_files(self):
         path, dirname = paths.db.get_tmp_report_dir()
